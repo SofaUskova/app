@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_search">
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.myapplication.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+
+        <action
+            android:id="@+id/action_navigation_search_to_detailInformationActivity"
+            app:destination="@id/detailInformationActivity" />
+
+        <action
+            android:id="@+id/action_navigation_search_to_viewingImagesActivity"
+            app:destination="@id/viewingImagesActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favourite"
+        android:name="com.example.myapplication.ui.favorite.FavoriteFragment"
+        android:label="@string/title_favourites"
+        tools:layout="@layout/fragment_favourite" />
+
+    <fragment
+        android:id="@+id/navigation_add_information"
+        android:name="com.example.myapplication.ui.addInformation.AddInformationFragment"
+        android:label="@string/title_ads"
+        tools:layout="@layout/fragment_add_information" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.myapplication.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <activity
+        android:id="@+id/detailInformationActivity"
+        android:name="com.example.myapplication.ui.search.DetailInformationActivity"
+        android:label=""
+        tools:layout="@layout/activity_detail_information"/>
+
+    <activity
+        android:id="@+id/viewingImagesActivity"
+        android:name="com.example.myapplication.ui.search.ViewingImagesActivity"
+        android:label=""
+        tools:layout="@layout/activity_viewing_images"/>
+
+</navigation>
