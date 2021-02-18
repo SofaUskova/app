@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/navigation_add_information"
-        android:name="com.example.myapplication.ui.addInformation.AddInformationFragment"
+        android:name="com.example.myapplication.ui.add.AddInformationFragment"
         android:label="@string/title_ads"
         tools:layout="@layout/fragment_add_information" />
 
