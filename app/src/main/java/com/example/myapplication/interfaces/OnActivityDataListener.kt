@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.interfaces
+package com.example.myapplication.interfaces
 
 interface OnActivityDataListener {
     fun onActivityDataListener(sortByMore: Boolean)

@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.search
+package com.example.myapplication.ui.fullScreenPhoto
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

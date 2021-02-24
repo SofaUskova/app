@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.search
+package com.example.myapplication.ui.detailInform
 
 import android.os.Bundle
 import android.text.TextUtils.TruncateAt

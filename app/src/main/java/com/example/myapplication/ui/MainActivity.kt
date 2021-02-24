@@ -12,7 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
-import com.example.myapplication.ui.interfaces.OnActivityDataListener
+import com.example.myapplication.interfaces.OnActivityDataListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -41,17 +41,17 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        extendedFabFilter.setOnClickListener {
-            //Navigation.findNavController(it).navigate(R.id.action_navigation_search_to_viewingImagesActivity)
+        extendedFabNext.setOnClickListener {
+            navController.navigate(R.id.action_navigation_search_to_filterActivity)
         }
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.label == "Поиск") {
-                extendedFabFilter.show()
+                extendedFabNext.show()
                 if (toolbar.menu.isNotEmpty())
                     toolbar.menu.getItem(0).isVisible = true
             } else {
-                extendedFabFilter.hide()
+                extendedFabNext.hide()
                 toolbar.menu.getItem(0).isVisible = false
             }
         }

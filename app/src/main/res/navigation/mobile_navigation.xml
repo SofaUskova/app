@@ -18,19 +18,61 @@
         <action
             android:id="@+id/action_navigation_search_to_viewingImagesActivity"
             app:destination="@id/viewingImagesActivity" />
+
+        <action
+            android:id="@+id/action_navigation_search_to_filterActivity"
+            app:destination="@id/filterActivity" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_favourite"
         android:name="com.example.myapplication.ui.favorite.FavoriteFragment"
         android:label="@string/title_favourites"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" >
+
+        <action
+            android:id="@+id/action_navigation_favourite_to_detailInformationActivity"
+            app:destination="@id/detailInformationActivity" />
+
+        <action
+            android:id="@+id/action_navigation_favourite_to_viewingImagesActivity"
+            app:destination="@id/viewingImagesActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_information"
         android:name="com.example.myapplication.ui.add.AddInformationFragment"
         android:label="@string/title_ads"
-        tools:layout="@layout/fragment_add_information" />
+        tools:layout="@layout/fragment_add_information" >
+
+        <action
+            android:id="@+id/action_navigation_add_information_to_navigation_add_base_information"
+            app:destination="@id/navigation_add_base_information" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_base_information"
+        android:name="com.example.myapplication.ui.add.AddInformationBaseFragment"
+        tools:layout="@layout/fragment_add_base_information">
+
+        <action
+            android:id="@+id/action_navigation_add_base_information_to_navigation_add_full_information"
+            app:destination="@id/navigation_add_full_information" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_full_information"
+        android:name="com.example.myapplication.ui.add.AddInformationFullFragment"
+        tools:layout="@layout/fragment_add_full_information">
+
+        <action
+            android:id="@+id/action_navigation_add_full_information_to_navigation_add_information"
+            app:destination="@id/navigation_add_information" />
+
+        <action
+            android:id="@+id/action_navigation_add_full_information_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -40,14 +82,19 @@
 
     <activity
         android:id="@+id/detailInformationActivity"
-        android:name="com.example.myapplication.ui.search.DetailInformationActivity"
+        android:name="com.example.myapplication.ui.detailInform.DetailInformationActivity"
         android:label=""
         tools:layout="@layout/activity_detail_information"/>
 
     <activity
         android:id="@+id/viewingImagesActivity"
-        android:name="com.example.myapplication.ui.search.ViewingImagesActivity"
+        android:name="com.example.myapplication.ui.fullScreenPhoto.ViewingImagesActivity"
         android:label=""
         tools:layout="@layout/activity_viewing_images"/>
+
+    <activity
+        android:id="@+id/filterActivity"
+        android:name="com.example.myapplication.ui.filter.FilerActivity"
+        tools:layout="@layout/activity_filter"/>
 
 </navigation>

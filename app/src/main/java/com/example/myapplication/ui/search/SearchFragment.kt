@@ -14,7 +14,7 @@ import com.example.myapplication.adapters.HorseLoadStateAdapter
 import com.example.myapplication.db.AppDatabase
 import com.example.myapplication.db.DatabaseBuilder
 import com.example.myapplication.models.Horse
-import com.example.myapplication.ui.interfaces.OnActivityDataListener
+import com.example.myapplication.interfaces.OnActivityDataListener
 import com.example.myapplication.ui.search.viewModels.SearchFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlin.concurrent.thread
