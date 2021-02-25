@@ -378,7 +378,6 @@
                 android:background="#ECEFF1"
                 app:layout_constraintTop_toBottomOf="@+id/textFreeInformationOpen" />
 
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageButtonProfile"
                 android:layout_width="70dp"
@@ -483,7 +482,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/viewSix1" />
 
             <HorizontalScrollView
-                android:id="@+id/horizontalScrollView2"
+                android:id="@+id/horizontalScrollViewAdverbs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -496,6 +495,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
 
                 <LinearLayout
+                    android:id="@+id/horizontalScrollViewAdverbsClick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -531,6 +531,46 @@
                         android:layout_marginEnd="16dp"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/i" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/d" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/p" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/f" />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/i" />
+
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/d" />
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -546,12 +586,12 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:text="8-919-209-09-82"
-        app:backgroundTint="#607D8B"
-        android:textSize="16sp"
-        app:iconSize="26dp"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
+        android:textSize="16sp"
+        app:backgroundTint="#607D8B"
         app:icon="@drawable/ic_phone_white"
+        app:iconSize="26dp"
         app:iconTint="#EEEEEE" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

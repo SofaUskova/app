@@ -21,13 +21,16 @@ class AddInformationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         addInformationFragmentViewModel = ViewModelProvider(this).get(AddInformationFragmentViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_add_information, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_add_information, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initListeners(view)
+    }
+
+    private fun initListeners(view: View) {
         extendedFabNext.setOnClickListener {
             NavHostFragment.findNavController(view.findFragment()).navigate(R.id.action_navigation_add_information_to_navigation_add_base_information)
         }

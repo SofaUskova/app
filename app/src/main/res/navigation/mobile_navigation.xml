@@ -9,7 +9,7 @@
         android:id="@+id/navigation_search"
         android:name="com.example.myapplication.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
 
         <action
             android:id="@+id/action_navigation_search_to_detailInformationActivity"
@@ -22,13 +22,17 @@
         <action
             android:id="@+id/action_navigation_search_to_filterActivity"
             app:destination="@id/filterActivity" />
+
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_favourite"
         android:name="com.example.myapplication.ui.favorite.FavoriteFragment"
         android:label="@string/title_favourites"
-        tools:layout="@layout/fragment_favourite" >
+        tools:layout="@layout/fragment_favourite">
 
         <action
             android:id="@+id/action_navigation_favourite_to_detailInformationActivity"
@@ -43,7 +47,7 @@
         android:id="@+id/navigation_add_information"
         android:name="com.example.myapplication.ui.add.AddInformationFragment"
         android:label="@string/title_ads"
-        tools:layout="@layout/fragment_add_information" >
+        tools:layout="@layout/fragment_add_information">
 
         <action
             android:id="@+id/action_navigation_add_information_to_navigation_add_base_information"
@@ -84,17 +88,17 @@
         android:id="@+id/detailInformationActivity"
         android:name="com.example.myapplication.ui.detailInform.DetailInformationActivity"
         android:label=""
-        tools:layout="@layout/activity_detail_information"/>
+        tools:layout="@layout/activity_detail_information" />
 
     <activity
         android:id="@+id/viewingImagesActivity"
         android:name="com.example.myapplication.ui.fullScreenPhoto.ViewingImagesActivity"
         android:label=""
-        tools:layout="@layout/activity_viewing_images"/>
+        tools:layout="@layout/activity_viewing_images" />
 
     <activity
         android:id="@+id/filterActivity"
         android:name="com.example.myapplication.ui.filter.FilerActivity"
-        tools:layout="@layout/activity_filter"/>
+        tools:layout="@layout/activity_filter" />
 
 </navigation>

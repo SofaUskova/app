@@ -180,7 +180,7 @@
             app:buttonTint="#90A4AE" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/extendedFabNext"
+            android:id="@+id/extendedFabAllow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.adapters.HorseLoadStateAdapter
 import com.example.myapplication.db.AppDatabase
 import com.example.myapplication.db.DatabaseBuilder
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -34,22 +33,10 @@ class FavoriteFragment : Fragment() {
         favoriteFragmentViewModel.searchData(database)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        //TODO удалить листенер с адаптера
-    }
-
     private fun initAdapter() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = favoriteFragmentViewModel.horsePagingDataAdapter.withLoadStateHeaderAndFooter(
-                header = HorseLoadStateAdapter { favoriteFragmentViewModel.horsePagingDataAdapter.retry() },
-                footer = HorseLoadStateAdapter { favoriteFragmentViewModel.horsePagingDataAdapter.retry() }
-            )
+            adapter = favoriteFragmentViewModel.horsePagingDataAdapter
         }
-//        favoriteFragmentViewModel.horsePagingDataAdapter.addLoadStateListener { loadState ->
-//            recyclerView.isVisible = loadState.source.refresh is LoadState.NotLoading
-//            message.isVisible = loadState.source.refresh is LoadState.Loading
-//        }
     }
 }

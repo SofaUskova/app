@@ -17,13 +17,16 @@ class AddInformationBaseFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_add_base_information, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_add_base_information, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initListeners(view)
+    }
+
+    private fun initListeners(view: View) {
         extendedFabNextBase.setOnClickListener {
             NavHostFragment.findNavController(view.findFragment()).navigate(R.id.action_navigation_add_base_information_to_navigation_add_full_information)
         }

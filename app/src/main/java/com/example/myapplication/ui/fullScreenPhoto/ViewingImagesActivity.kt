@@ -11,6 +11,20 @@ class ViewingImagesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewing_images)
+
+        initToolbar()
+        initAdapters()
+    }
+
+    private fun initToolbar() {
+        setSupportActionBar(findViewById(R.id.toolbarBlack))
+        toolbarBlack.setNavigationIcon(R.drawable.ic_back)
+        toolbarBlack.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun initAdapters() {
         viewPager.adapter = ViewingImagesAdapter()
     }
 }

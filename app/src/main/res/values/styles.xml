@@ -14,6 +14,13 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
+    <style name="ToolbarFullScreenPhoto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:background">#000000</item>
+    </style>
+
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_height">wrap_content</item>
         <item name="boxStrokeColor">#ECEFF1</item>

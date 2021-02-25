@@ -26,35 +26,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navController = findNavController(R.id.nav_host_fragment)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_search,
-                R.id.navigation_favourite,
-                R.id.navigation_add_information,
-                R.id.navigation_profile
-            )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
-        extendedFabNext.setOnClickListener {
-            navController.navigate(R.id.action_navigation_search_to_filterActivity)
-        }
-
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.label == "Поиск") {
-                extendedFabNext.show()
-                if (toolbar.menu.isNotEmpty())
-                    toolbar.menu.getItem(0).isVisible = true
-            } else {
-                extendedFabNext.hide()
-                toolbar.menu.getItem(0).isVisible = false
-            }
-        }
+        initController()
+        setListeners()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -78,5 +51,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    private fun initController() {
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navController = findNavController(R.id.nav_host_fragment)
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_search,
+                R.id.navigation_favourite,
+                R.id.navigation_add_information,
+                R.id.navigation_profile
+            )
+        )
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+    }
+
+    private fun setListeners() {
+        extendedFabFilter.setOnClickListener {
+            navController.navigate(R.id.action_navigation_search_to_filterActivity)
+        }
+
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            //TODO
+            if (destination.label == "Поиск") {
+                extendedFabFilter.show()
+                if (toolbar.menu.isNotEmpty())
+                    toolbar.menu.getItem(0).isVisible = true
+            } else {
+                extendedFabFilter.hide()
+                toolbar.menu.getItem(0).isVisible = false
+            }
+        }
     }
 }
