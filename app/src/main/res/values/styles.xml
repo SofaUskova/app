@@ -15,13 +15,13 @@
     </style>
 
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_height">wrap_content</item>
         <item name="boxStrokeColor">#ECEFF1</item>
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxBackgroundColor">#FFFFFF</item>
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="android:textColorHint">#90A4AE</item>
         <item name="android:textColor">#263238</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:layout_marginHorizontal">16dp</item>
+        <item name="android:layout_marginHorizontal">8dp</item>
     </style>
 </resources>

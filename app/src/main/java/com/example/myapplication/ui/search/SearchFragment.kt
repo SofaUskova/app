@@ -54,7 +54,7 @@ class SearchFragment : Fragment(), OnActivityDataListener {
     private fun addAllDatabase(database: AppDatabase) {
         val list = mutableListOf<Horse>()
         for (i in 1..10) {
-            list.add(Horse(i, "name$i", "2010г.р.", "mother", "father", "color","location", "20000$i", true))
+            list.add(Horse(i, "Клюква", "2010г.р.", " - Каприоль", "Василиск", "соловая","г. Орел", "20000$i", true))
         }
 
         thread {
