@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Масть"
+        android:hint="Мать"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +26,7 @@
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Порода"
+        android:hint="Отец"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextColor">
@@ -74,7 +74,7 @@
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Высота в холке"
+        android:hint="Место рождения"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextBirthday">
@@ -85,12 +85,13 @@
             android:textSize="12sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <Button
         android:id="@+id/extendedFabNextBase"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:paddingHorizontal="55dp"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="10dp"
         android:text="Далее"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
