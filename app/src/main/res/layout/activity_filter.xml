@@ -179,21 +179,20 @@
             android:textColor="#90A4AE"
             app:buttonTint="#90A4AE" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/extendedFabAllow"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/extendedFabNext"
+            android:layout_marginHorizontal="8dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:paddingVertical="10dp"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="25dp"
-            android:paddingHorizontal="30dp"
+            android:layout_marginBottom="10dp"
             android:text="Применить"
             android:textAllCaps="false"
             android:textColor="#EEEEEE"
             android:textSize="16sp"
             android:visibility="visible"
-            app:backgroundTint="#607D8B"
-            app:iconTint="#EEEEEE" />
+            app:backgroundTint="#607D8B" />
 
     </LinearLayout>
 </ScrollView>

@@ -9,7 +9,8 @@
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Мать"
+        android:layout_marginTop="30dp"
+        android:hint="Масть"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +26,7 @@
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Отец"
+        android:hint="Порода"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextMother">
@@ -41,7 +42,7 @@
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Место рождения"
+        android:hint="Высота в холке"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextFather">
@@ -84,12 +85,13 @@
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <Button
         android:id="@+id/extendedFabClean"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:paddingHorizontal="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
         android:text="Очистить"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
@@ -97,15 +99,16 @@
         app:backgroundTint="#607D8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <Button
         android:id="@+id/extendedFabPush"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:paddingHorizontal="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
         android:text="Разместить"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
@@ -113,7 +116,7 @@
         app:backgroundTint="#607D8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
