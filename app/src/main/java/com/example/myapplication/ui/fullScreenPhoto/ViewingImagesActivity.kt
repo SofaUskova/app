@@ -18,7 +18,7 @@ class ViewingImagesActivity : AppCompatActivity() {
 
     private fun initToolbar() {
         setSupportActionBar(findViewById(R.id.toolbarBlack))
-        toolbarBlack.setNavigationIcon(R.drawable.ic_back)
+        toolbarBlack.setNavigationIcon(R.drawable.ic_back_light)
         toolbarBlack.setNavigationOnClickListener {
             onBackPressed()
         }

@@ -1,11 +1,13 @@
 package com.example.myapplication.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
+import com.example.myapplication.ui.filter.FilterActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         extendedFabFilter.setOnClickListener {
-            navController.navigate(R.id.action_navigation_search_to_filterActivity)
+            startActivity(Intent(this, FilterActivity::class.java))
         }
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->

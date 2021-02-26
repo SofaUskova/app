@@ -20,10 +20,6 @@
             app:destination="@id/viewingImagesActivity" />
 
         <action
-            android:id="@+id/action_navigation_search_to_filterActivity"
-            app:destination="@id/filterActivity" />
-
-        <action
             android:id="@+id/action_navigation_search_to_navigation_profile"
             app:destination="@id/navigation_profile" />
     </fragment>
