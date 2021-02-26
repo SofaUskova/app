@@ -99,6 +99,7 @@ class DetailInformationActivity : AppCompatActivity() {
                 arrayOf(Manifest.permission.CALL_PHONE),
                 1
             )
+            checkCallPermission()
         }
     }
 }
