@@ -66,23 +66,13 @@ class DetailInformationActivity : AppCompatActivity() {
             ).show()
         }
 
-        floatButtonTelephone.shrink()
         floatButtonTelephone.setOnClickListener {
-            if (floatButtonTelephone.isExtended) {
                 checkCallPermission()
-                floatButtonTelephone.shrink()
-            } else {
-                floatButtonTelephone.extend()
-            }
         }
 
         imageButtonProfile.setOnClickListener {
             //Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_navigation_search_to_navigation_profile)
             finish()
-        }
-
-        horizontalScrollViewAdverbsClick.setOnClickListener {
-            startActivity(Intent(this, DetailInformationActivity::class.java))
         }
     }
 

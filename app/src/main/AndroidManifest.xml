@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.filter.FilerActivity"
+        <activity android:name=".ui.filter.FilterActivity"
             android:label="Фильтр" />
         <activity
             android:name=".ui.detailInform.DetailInformationActivity"
@@ -18,7 +18,9 @@
         <activity
             android:name=".ui.fullScreenPhoto.ViewingImagesActivity"
             android:label="" />
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

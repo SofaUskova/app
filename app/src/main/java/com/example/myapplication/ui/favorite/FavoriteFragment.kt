@@ -22,6 +22,7 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         favoriteFragmentViewModel = ViewModelProvider(this).get(FavoriteFragmentViewModel::class.java)
+
         return inflater.inflate(R.layout.fragment_favourite, container, false)
     }
 

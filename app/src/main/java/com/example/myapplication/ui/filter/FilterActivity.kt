@@ -6,7 +6,7 @@ import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_filter.*
 import kotlinx.android.synthetic.main.toolbar.toolbar
 
-class FilerActivity : AppCompatActivity() {
+class FilterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -19,7 +19,7 @@ class HorsePagingSource(
             val nextKey = params.key ?: 1
 
             val list = withContext(Dispatchers.IO) {
-                delay(2000)
+                //delay(2000)
                 appDatabase.daoHorse().getAll()
             }
 

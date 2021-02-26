@@ -180,7 +180,7 @@
             app:buttonTint="#90A4AE" />
 
         <Button
-            android:id="@+id/extendedFabNext"
+            android:id="@+id/extendedFabAllow"
             android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

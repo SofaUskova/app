@@ -58,6 +58,31 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
+    fun setFavoriteOn(horse: Horse) {
+        cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+        horse.favorite = true
+    }
+
+    fun initListenersFavorite(horse: Horse) {
+        cardView.imageButtonAddFavorite.setOnClickListener {
+            if (horse.favorite) {
+                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+                horse.favorite = false
+            } else {
+                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
+                horse.favorite = true
+            }
+        }
+
+        cardView.setOnClickListener {
+            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_favourite_to_detailInformationActivity)
+        }
+
+        cardView.scrollLayout.setOnClickListener {
+            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_favourite_to_viewingImagesActivity)
+        }
+    }
+
     companion object {
 
         private lateinit var context: Context

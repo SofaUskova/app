@@ -14,12 +14,11 @@ import com.example.myapplication.adapters.HorseLoadStateAdapter
 import com.example.myapplication.db.AppDatabase
 import com.example.myapplication.db.DatabaseBuilder
 import com.example.myapplication.models.Horse
-import com.example.myapplication.interfaces.OnActivityDataListener
 import com.example.myapplication.ui.search.viewModels.SearchFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlin.concurrent.thread
 
-class SearchFragment : Fragment(), OnActivityDataListener {
+class SearchFragment : Fragment() {
     private lateinit var searchFragmentViewModel: SearchFragmentViewModel
     private lateinit var database: AppDatabase
 
@@ -39,10 +38,6 @@ class SearchFragment : Fragment(), OnActivityDataListener {
         //addAllDatabase(database)
         initAdapter()
         searchFragmentViewModel.searchData(database)
-    }
-
-    override fun onActivityDataListener(sortByMore: Boolean) {
-        searchFragmentViewModel.sortedData(sortByMore, database)
     }
 
     override fun onDestroyView() {

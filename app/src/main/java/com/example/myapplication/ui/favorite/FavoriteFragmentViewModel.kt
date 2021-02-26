@@ -2,21 +2,21 @@ package com.example.myapplication.ui.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.adapters.HorsePagingDataAdapter
+import com.example.myapplication.adapters.FavoriteHorsePagingDataAdapter
 import com.example.myapplication.db.AppDatabase
-import com.example.myapplication.ui.searchHorses
+import com.example.myapplication.ui.getSearchResultStream
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class FavoriteFragmentViewModel : ViewModel() {
     private var searchJob: Job? = null
-    val horsePagingDataAdapter: HorsePagingDataAdapter = HorsePagingDataAdapter()
+    val horsePagingDataAdapter: FavoriteHorsePagingDataAdapter = FavoriteHorsePagingDataAdapter()
 
     fun searchData(database: AppDatabase) {
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            searchHorses(database, viewModelScope = viewModelScope).collectLatest {
+            getSearchResultStream(database).collectLatest {
                 horsePagingDataAdapter.submitData(it)
             }
         }

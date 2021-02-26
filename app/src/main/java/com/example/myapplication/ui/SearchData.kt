@@ -33,7 +33,7 @@ fun searchHorses(
         .cachedIn(viewModelScope)
 }
 
-private fun getSearchResultStream(
+fun getSearchResultStream(
     appDatabase: AppDatabase,
     sortByMore: Boolean? = null
 ): Flow<PagingData<Horse>> {

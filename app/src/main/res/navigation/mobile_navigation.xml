@@ -98,7 +98,7 @@
 
     <activity
         android:id="@+id/filterActivity"
-        android:name="com.example.myapplication.ui.filter.FilerActivity"
+        android:name="com.example.myapplication.ui.filter.FilterActivity"
         tools:layout="@layout/activity_filter" />
 
 </navigation>

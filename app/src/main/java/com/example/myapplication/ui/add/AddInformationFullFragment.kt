@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment
@@ -22,8 +23,19 @@ class AddInformationFullFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val toolbarInfoBase = view.findViewById<Toolbar>(R.id.toolbar)
 
+        initToolbar(toolbarInfoBase)
         initListeners(view)
+    }
+
+    private fun initToolbar(toolbarInfoBase: Toolbar) {
+        toolbarInfoBase.apply {
+            setNavigationIcon(R.drawable.ic_back)
+            setNavigationOnClickListener {
+                requireActivity().onBackPressed()
+            }
+        }
     }
 
     private fun initListeners(view: View) {
