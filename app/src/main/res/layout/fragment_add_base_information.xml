@@ -9,12 +9,13 @@
         layout="@layout/toolbar" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputTextColor"
-        style="@style/LoginTextInputLayoutStyle"
-        android:layout_width="match_parent"
+        android:id="@+id/inputTextMather"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
         android:hint="Мать"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -25,14 +26,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputTextRegionBreed"
-        style="@style/LoginTextInputLayoutStyle"
-        android:layout_width="match_parent"
+        android:id="@+id/inputTextFather"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
         android:hint="Отец"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputTextColor">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -41,16 +43,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputTextRegionSex"
-        style="@style/LoginTextInputLayoutStyle"
+        android:id="@+id/inputTextSex"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
         android:hint="Пол"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputTextRegionBreed">
+        app:layout_constraintTop_toBottomOf="@+id/inputTextFather">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -58,13 +63,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextBirthday"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
         android:hint="Год рождения"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputTextRegionSex">
+        app:layout_constraintTop_toBottomOf="@+id/inputTextSex">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -73,16 +80,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputTextHeight"
-        style="@style/LoginTextInputLayoutStyle"
+        android:id="@+id/inputTextPlace"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="8dp"
         android:hint="Место рождения"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextBirthday">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -92,9 +102,9 @@
         android:id="@+id/extendedFabNextBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="10dp"
+        android:paddingVertical="10dp"
         android:text="Далее"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"

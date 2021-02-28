@@ -2,31 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".ui.filter.FilterActivity"
+        <activity
+            android:label=""
+            android:name=".ui.ListCities"/>
+        <activity
+            android:name=".ui.filter.FilterActivity"
             android:label="Фильтр" />
         <activity
             android:name=".ui.detailInform.DetailInformationActivity"
             android:label="" />
         <activity
             android:name=".ui.fullScreenPhoto.ViewingImagesActivity"
-            android:theme="@style/AppThemeDark"
-            android:label="" />
-        <activity
-            android:name=".ui.MainActivity">
+            android:label=""
+            android:theme="@style/AppThemeDark" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

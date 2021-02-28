@@ -10,7 +10,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextMother"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Масть"
@@ -26,7 +28,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextFather"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Порода"
@@ -42,7 +46,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextRegionBirthday"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Высота в холке"
@@ -58,7 +64,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextSpecifity"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Специализация"
@@ -74,7 +82,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextPrice"
-        style="@style/LoginTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Цена"
@@ -90,7 +100,7 @@
 
     <Button
         android:id="@+id/extendedFabClean"
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="10dp"
@@ -106,7 +116,7 @@
 
     <Button
         android:id="@+id/extendedFabPush"
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"

@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navController = findNavController(R.id.nav_host_fragment)
         navView.setupWithNavController(navController)
+
+        navView.selectedItemId = intent.getIntExtra("FRAGMENT", R.id.navigation_search)
     }
 
     private fun setListeners() {

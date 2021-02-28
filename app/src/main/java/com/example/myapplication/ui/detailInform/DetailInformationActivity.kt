@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.example.myapplication.R
+import com.example.myapplication.ui.MainActivity
 import com.example.myapplication.ui.fullScreenPhoto.ViewingImagesActivity
 import kotlinx.android.synthetic.main.activity_detail_information.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -67,11 +68,15 @@ class DetailInformationActivity : AppCompatActivity() {
         }
 
         floatButtonTelephone.setOnClickListener {
-                checkCallPermission()
+            checkCallPermission()
         }
 
         imageButtonProfile.setOnClickListener {
-            //Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_navigation_search_to_navigation_profile)
+            startActivity(
+                Intent(this, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .putExtra("FRAGMENT", R.id.navigation_profile)
+            )
             finish()
         }
     }

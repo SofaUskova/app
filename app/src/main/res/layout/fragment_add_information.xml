@@ -27,7 +27,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputTextName"
-            style="@style/LoginTextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Кличка"
@@ -44,7 +46,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputTextRegion"
-            style="@style/LoginTextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Город"
@@ -70,7 +74,6 @@
             android:textAllCaps="false"
             android:textColor="#EEEEEE"
             android:textSize="16sp"
-            android:enabled="false"
             android:background="#607D8B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
