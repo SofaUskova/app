@@ -2,6 +2,7 @@ package com.example.myapplication.ui.add
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment
+import com.example.myapplication.GenderDialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.ui.ListCities
 import kotlinx.android.synthetic.main.fragment_add_base_information.*
@@ -53,22 +55,18 @@ class AddInformationBaseFragment : Fragment() {
                 .navigate(R.id.action_navigation_add_base_information_to_navigation_add_full_information)
         }
 
+        inputEditTextSex.inputType = InputType.TYPE_NULL
         inputEditTextSex.setOnFocusChangeListener { _, focused ->
             if (focused) {
-
-                //requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-                requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,
-                    WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
-
-//                val genderDialogFragment = GenderDialogFragment()
-//                genderDialogFragment.show(
-//                    childFragmentManager,
-//                    "dialog_fragment_sex"
-//                )
+                val genderDialogFragment = GenderDialogFragment()
+                genderDialogFragment.show(
+                    childFragmentManager,
+                    "dialog_fragment_sex"
+                )
             }
         }
 
+        inputEditTextPlace.inputType = InputType.TYPE_NULL
         inputEditTextPlace.setOnFocusChangeListener { _, focused ->
             if (focused) {
                 startActivityForResult(Intent(requireContext(), ListCities::class.java), 1)

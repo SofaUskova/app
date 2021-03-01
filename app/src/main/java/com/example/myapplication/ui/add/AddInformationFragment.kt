@@ -2,6 +2,7 @@ package com.example.myapplication.ui.add
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.myapplication.R
 import com.example.myapplication.ui.ListCities
 import com.example.myapplication.ui.add.viewModels.AddInformationFragmentViewModel
+import kotlinx.android.synthetic.main.fragment_add_base_information.*
 import kotlinx.android.synthetic.main.fragment_add_information.*
 
 class AddInformationFragment : Fragment() {
@@ -47,6 +49,7 @@ class AddInformationFragment : Fragment() {
                 .navigate(R.id.action_navigation_add_information_to_navigation_add_base_information)
         }
 
+        inputEditTextRegion.inputType = InputType.TYPE_NULL
         inputEditTextRegion.setOnFocusChangeListener { _, focused ->
             if (focused) {
                 startActivityForResult(Intent(requireContext(), ListCities::class.java), 1)
