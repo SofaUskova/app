@@ -14,93 +14,97 @@
             layout="@layout/toolbar" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:hint="Регион">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField2"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
             android:hint="Кличка">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField3"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextRegion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:hint="Цена">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Город">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextRegion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField4"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:hint="Мать - Отец">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputTextMather"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:hint="Мать">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField5"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:hint="Масть">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputTextFather"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:hint="Отец">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField6"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextSex"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:hint="Порода">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField7"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
             android:hint="Пол">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextSex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField8"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextBirthday"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
             android:hint="Год рождения">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -110,9 +114,60 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField9"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextPlace"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Место рождения">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTextColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Масть">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTextBreed"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Порода">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextBreed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTextHeight"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
             android:hint="Высота в холке">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -122,22 +177,29 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField10"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextSpecifity"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:hint="Специализации">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Специализация">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextSpecifity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField11"
-            style="@style/LoginTextInputLayoutStyle"
+            android:id="@+id/inputTextPrice"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:hint="Место рождения">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:hint="Цена">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -145,48 +207,14 @@
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:checked="true"
-            android:text="Племенной паспорт"
-            android:textColor="#90A4AE"
-            app:buttonTint="#90A4AE" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:text="Паспорт спортивной лошади"
-            android:textColor="#90A4AE"
-            app:buttonTint="#90A4AE" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:text="Паспорт прогулочной лошади"
-            android:textColor="#90A4AE"
-            app:buttonTint="#90A4AE" />
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:text="Без документов"
-            android:textColor="#90A4AE"
-            app:buttonTint="#90A4AE" />
-
         <Button
             android:id="@+id/extendedFabAllow"
-            android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="10dp"
+            android:paddingVertical="10dp"
             android:text="Применить"
             android:textAllCaps="false"
             android:textColor="#EEEEEE"

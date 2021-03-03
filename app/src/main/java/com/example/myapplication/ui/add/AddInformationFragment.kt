@@ -11,9 +11,8 @@ import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.myapplication.R
-import com.example.myapplication.ui.ListCities
+import com.example.myapplication.ui.GenerateList
 import com.example.myapplication.ui.add.viewModels.AddInformationFragmentViewModel
-import kotlinx.android.synthetic.main.fragment_add_base_information.*
 import kotlinx.android.synthetic.main.fragment_add_information.*
 
 class AddInformationFragment : Fragment() {
@@ -40,7 +39,7 @@ class AddInformationFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        inputEditTextRegion.setText(data?.getStringExtra("name"))
+        inputEditTextRegion.setText(data?.getStringExtra("value"))
     }
 
     private fun initListeners(view: View) {
@@ -52,7 +51,7 @@ class AddInformationFragment : Fragment() {
         inputEditTextRegion.inputType = InputType.TYPE_NULL
         inputEditTextRegion.setOnFocusChangeListener { _, focused ->
             if (focused) {
-                startActivityForResult(Intent(requireContext(), ListCities::class.java), 1)
+                startActivityForResult(Intent(requireContext(), GenerateList::class.java).putExtra("value", "city"), 1)
             }
         }
     }

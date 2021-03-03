@@ -5,33 +5,55 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.adapters.ListCitiesAdapter
+import com.example.myapplication.adapters.ListAdapter
 import com.example.myapplication.interfeises.OnItemClickListener
-import kotlinx.android.synthetic.main.activity_list_cities.*
+import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.xmlpull.v1.XmlPullParser
 
-class ListCities : AppCompatActivity() {
+class GenerateList : AppCompatActivity() {
 
-    private lateinit var adapterCities: ListCitiesAdapter
+    private lateinit var adapterCities: ListAdapter
+    private var resultCode: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_cities)
+        setContentView(R.layout.activity_list)
 
         initToolbar()
-        recyclerViewCities.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        adapterCities = ListCitiesAdapter(generateListCities(), object : OnItemClickListener {
+
+        val list = mutableListOf<String>()
+        when (intent.getStringExtra("value")) {
+            "city" -> {
+                list.addAll(generateListCities())
+                resultCode = 1
+            }
+            "cityOfBirth" -> {
+                list.addAll(generateListCities())
+                resultCode = 2
+            }
+            "color" -> {
+                list.addAll(generateListColors())
+                resultCode = 3
+            }
+            "breed" -> {
+                list.addAll(generateListBreed())
+                resultCode = 4
+            }
+        }
+
+        adapterCities = ListAdapter(list, object : OnItemClickListener {
             override fun onItemClicked(position: Int, `object`: Any?) {
                 val intent = Intent()
-                intent.putExtra("name", `object`.toString())
-                setResult(RESULT_OK, intent)
+                intent.putExtra("value", `object`.toString())
+                setResult(resultCode, intent)
                 finish()
             }
         })
 
-        recyclerViewCities.adapter = adapterCities
+        recyclerView.adapter = adapterCities
     }
 
     private fun initToolbar() {
@@ -58,5 +80,15 @@ class ListCities : AppCompatActivity() {
             parser.next()
         }
         return list
+    }
+
+    private fun generateListColors(): MutableList<String> {
+        val colors = resources.getStringArray(R.array.color)
+        return colors.toMutableList()
+    }
+
+    private fun generateListBreed(): MutableList<String> {
+        val breeds = resources.getStringArray(R.array.breed)
+        return breeds.toMutableList()
     }
 }

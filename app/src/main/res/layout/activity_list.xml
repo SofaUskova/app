@@ -8,13 +8,13 @@
     <include layout="@layout/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCities"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCity"
         tools:itemCount="20"
-        tools:listitem="@layout/recyclerview_city_item">
+        tools:listitem="@layout/recyclerview_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 

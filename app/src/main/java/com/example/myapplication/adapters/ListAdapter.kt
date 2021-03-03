@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.interfeises.OnItemClickListener
 
-class ListCitiesAdapter(private val list: List<String>, private val onItemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<ListCitiesAdapter.MyViewHolder>() {
+class ListAdapter(private val list: List<String>, private val onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun getItemCount() = list.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.recyclerview_city_item,
+            R.layout.recyclerview_item,
             parent,
             false
         )
