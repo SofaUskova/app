@@ -43,15 +43,33 @@ class AddInformationFragment : Fragment() {
     }
 
     private fun initListeners(view: View) {
-        extendedFabNext.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment())
-                .navigate(R.id.action_navigation_add_information_to_navigation_add_base_information)
+        buttonNext.setOnClickListener {
+
+            if (inputEditTextName.text.isNullOrEmpty()) inputTextName.error = "Заполните поле"
+            if (inputEditTextRegion.text.isNullOrEmpty()) inputTextRegion.error = "Заполните поле"
+
+            if (!inputEditTextRegion.text.isNullOrEmpty() && !inputEditTextName.text.isNullOrEmpty()) {
+                NavHostFragment.findNavController(view.findFragment())
+                    .navigate(R.id.action_navigation_add_information_to_navigation_add_base_information)
+            }
+        }
+
+        inputEditTextName.setOnFocusChangeListener { _, focused ->
+            if (focused) {
+                inputTextName.error = null
+            }
         }
 
         inputEditTextRegion.inputType = InputType.TYPE_NULL
         inputEditTextRegion.setOnFocusChangeListener { _, focused ->
             if (focused) {
-                startActivityForResult(Intent(requireContext(), GenerateList::class.java).putExtra("value", "city"), 1)
+                inputTextRegion.error = null
+                startActivityForResult(
+                    Intent(
+                        requireContext(),
+                        GenerateList::class.java
+                    ).putExtra("value", "city"), 1
+                )
             }
         }
     }

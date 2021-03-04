@@ -78,7 +78,16 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.myapplication.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_navigation_profile_to_adverbsListFragment"
+            app:destination="@id/adverbsListFragment" />
+
+        <action
+            android:id="@+id/action_navigation_profile_to_detailInformationActivity"
+            app:destination="@id/detailInformationActivity" />
+    </fragment>
 
     <activity
         android:id="@+id/detailInformationActivity"
@@ -96,5 +105,9 @@
         android:id="@+id/filterActivity"
         android:name="com.example.myapplication.ui.filter.FilterActivity"
         tools:layout="@layout/activity_filter" />
+    <fragment
+        android:id="@+id/adverbsListFragment"
+        android:name="com.example.myapplication.ui.profile.AdverbsListFragment"
+        android:label="AdverbsListFragment" />
 
 </navigation>

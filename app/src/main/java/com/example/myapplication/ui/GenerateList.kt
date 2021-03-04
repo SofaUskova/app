@@ -13,7 +13,7 @@ import org.xmlpull.v1.XmlPullParser
 
 class GenerateList : AppCompatActivity() {
 
-    private lateinit var adapterCities: ListAdapter
+    private lateinit var listAdapter: ListAdapter
     private var resultCode: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,16 +44,16 @@ class GenerateList : AppCompatActivity() {
             }
         }
 
-        adapterCities = ListAdapter(list, object : OnItemClickListener {
-            override fun onItemClicked(position: Int, `object`: Any?) {
+        listAdapter = ListAdapter(list, object : OnItemClickListener {
+            override fun onItemClicked(position: Int, any: Any?) {
                 val intent = Intent()
-                intent.putExtra("value", `object`.toString())
+                intent.putExtra("value", any.toString())
                 setResult(resultCode, intent)
                 finish()
             }
         })
 
-        recyclerView.adapter = adapterCities
+        recyclerView.adapter = listAdapter
     }
 
     private fun initToolbar() {

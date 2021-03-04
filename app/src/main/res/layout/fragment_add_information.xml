@@ -9,10 +9,10 @@
         android:id="@+id/imageButtonAddPhoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintHeight_max="200dp"
         android:src="@drawable/ic_add_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.10" />
@@ -28,11 +28,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputTextName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginVertical="8dp"
-            android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
             android:hint="Кличка"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_clear_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -47,11 +49,12 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputTextRegion"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginVertical="8dp"
-            android:layout_marginHorizontal="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
             android:hint="Город"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_clear_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputTextName">
@@ -64,17 +67,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/extendedFabNext"
+            android:id="@+id/buttonNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginBottom="10dp"
+            android:background="#607D8B"
             android:paddingVertical="8dp"
             android:text="Далее"
             android:textAllCaps="false"
             android:textColor="#EEEEEE"
             android:textSize="16sp"
-            android:background="#607D8B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

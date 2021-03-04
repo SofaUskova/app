@@ -11,11 +11,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextColor"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
         android:hint="Масть"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -30,10 +34,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextBreed"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         android:hint="Порода"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,16 +54,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextHeight"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         android:hint="Высота в холке"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextBreed">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -67,10 +74,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextSpecifity"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         android:hint="Специализация"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,16 +94,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextPrice"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         android:hint="Цена"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextSpecifity">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -107,13 +117,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="10dp"
-        android:paddingVertical="10dp"
-        app:layout_goneMarginStart="8dp"
+        android:background="#607D8B"
+        android:paddingVertical="8dp"
         android:text="Очистить"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
         android:textSize="16sp"
-        app:backgroundTint="#607D8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -123,13 +132,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
-        android:paddingVertical="10dp"
-        app:layout_goneMarginEnd="8dp"
+        android:background="#607D8B"
+        android:paddingVertical="8dp"
         android:text="Разместить"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
         android:textSize="16sp"
-        app:backgroundTint="#607D8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

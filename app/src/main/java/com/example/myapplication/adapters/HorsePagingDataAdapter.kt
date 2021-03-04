@@ -10,7 +10,7 @@ import com.example.myapplication.models.UiModel
 class HorsePagingDataAdapter : PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(UI_MODEL_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == R.layout.card_view_horse) {
+        return if (viewType == R.layout.cardview_horse) {
             HorsePagingDataViewHolder.create(parent)
         } else {
             SeparatorViewHolder.create(parent)
@@ -19,8 +19,8 @@ class HorsePagingDataAdapter : PagingDataAdapter<UiModel, RecyclerView.ViewHolde
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is UiModel.HorseItem -> R.layout.card_view_horse
-            is UiModel.SeparatorItem -> R.layout.separator_view_item
+            is UiModel.HorseItem -> R.layout.cardview_horse
+            is UiModel.SeparatorItem -> R.layout.item_separator
             null -> throw UnsupportedOperationException("Unknown view")
         }
     }

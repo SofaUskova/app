@@ -16,6 +16,7 @@ import com.example.myapplication.ui.GenerateList
 import kotlinx.android.synthetic.main.fragment_add_base_information.*
 
 class AddInformationBaseFragment : Fragment() {
+    private val genderDialogFragment = DialogFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,9 +50,33 @@ class AddInformationBaseFragment : Fragment() {
     }
 
     private fun initListeners(view: View) {
-        extendedFabNextBase.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment())
-                .navigate(R.id.action_navigation_add_base_information_to_navigation_add_full_information)
+        buttonNextBase.setOnClickListener {
+            if (inputEditTextMather.text.isNullOrEmpty()) inputTextMather.error = "Заполните поле"
+            if (inputEditTextFather.text.isNullOrEmpty()) inputTextFather.error =
+                "Заполните поле"
+            if (inputEditTextSex.text.isNullOrEmpty()) inputTextSex.error = "Заполните поле"
+            if (inputEditTextBirthday.text.isNullOrEmpty()) inputTextBirthday.error =
+                "Заполните поле"
+            if (inputEditTextPlace.text.isNullOrEmpty()) inputTextPlace.error = "Заполните поле"
+
+            if (!inputEditTextMather.text.isNullOrEmpty()
+                && !inputEditTextFather.text.isNullOrEmpty()
+                && !inputEditTextSex.text.isNullOrEmpty()
+                && !inputEditTextBirthday.text.isNullOrEmpty()
+                && !inputEditTextPlace.text.isNullOrEmpty()
+            ) {
+                NavHostFragment.findNavController(view.findFragment())
+                    .navigate(R.id.action_navigation_add_base_information_to_navigation_add_full_information)
+            }
+        }
+        inputEditTextMather.setOnFocusChangeListener { _, _ ->
+            inputTextMather.error = null
+        }
+        inputEditTextFather.setOnFocusChangeListener { _, _ ->
+            inputTextFather.error = null
+        }
+        inputEditTextBirthday.setOnFocusChangeListener { _, _ ->
+            inputTextBirthday.error = null
         }
 
         inputEditTextSex.inputType = InputType.TYPE_NULL
@@ -60,7 +85,7 @@ class AddInformationBaseFragment : Fragment() {
             args.putString("value", "sex")
 
             if (focused) {
-                val genderDialogFragment = DialogFragment()
+                inputTextSex.error = null
                 genderDialogFragment.arguments = args
                 genderDialogFragment.show(
                     childFragmentManager,
@@ -72,6 +97,7 @@ class AddInformationBaseFragment : Fragment() {
         inputEditTextPlace.inputType = InputType.TYPE_NULL
         inputEditTextPlace.setOnFocusChangeListener { _, focused ->
             if (focused) {
+                inputTextPlace.error = null
                 startActivityForResult(
                     Intent(requireContext(), GenerateList::class.java).putExtra(
                         "value",
@@ -80,5 +106,10 @@ class AddInformationBaseFragment : Fragment() {
                 )
             }
         }
+    }
+
+    fun onClicked(str: String) {
+        genderDialogFragment.dismiss()
+        inputEditTextSex.setText(str)
     }
 }

@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.models.Horse
-import kotlinx.android.synthetic.main.card_view_horse.view.*
+import kotlinx.android.synthetic.main.cardview_horse.view.*
 
 class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val name: TextView = view.findViewById(R.id.name)
@@ -90,7 +90,7 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun create(parent: ViewGroup): HorsePagingDataViewHolder {
             context = parent.context
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.card_view_horse, parent, false)
+                .inflate(R.layout.cardview_horse, parent, false)
             return HorsePagingDataViewHolder(view)
         }
     }

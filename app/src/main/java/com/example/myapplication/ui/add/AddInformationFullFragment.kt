@@ -16,6 +16,7 @@ import com.example.myapplication.ui.GenerateList
 import kotlinx.android.synthetic.main.fragment_add_full_information.*
 
 class AddInformationFullFragment : Fragment() {
+    private val specializationDialogFragment = DialogFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,9 +53,20 @@ class AddInformationFullFragment : Fragment() {
     }
 
     private fun initListeners(view: View) {
+        inputEditTextHeight.setOnFocusChangeListener { _, _ ->
+            inputTextHeight.error = null
+        }
+        inputEditTextSpecifity.setOnFocusChangeListener { _, _ ->
+            inputTextSpecifity.error = null
+        }
+        inputEditTextPrice.setOnFocusChangeListener { _, _ ->
+            inputTextPrice.error = null
+        }
+
         inputEditTextColor.inputType = InputType.TYPE_NULL
         inputEditTextColor.setOnFocusChangeListener { _, focused ->
             if (focused) {
+                inputTextColor.error = null
                 startActivityForResult(
                     Intent(
                         requireContext(),
@@ -67,6 +79,7 @@ class AddInformationFullFragment : Fragment() {
         inputEditTextBreed.inputType = InputType.TYPE_NULL
         inputEditTextBreed.setOnFocusChangeListener { _, focused ->
             if (focused) {
+                inputTextBreed.error = null
                 startActivityForResult(
                     Intent(
                         requireContext(),
@@ -82,7 +95,7 @@ class AddInformationFullFragment : Fragment() {
             args.putString("value", "specialization")
 
             if (focused) {
-                val specializationDialogFragment = DialogFragment()
+                inputTextSpecifity.error = null
                 specializationDialogFragment.arguments = args
                 specializationDialogFragment.show(
                     childFragmentManager,
@@ -92,13 +105,34 @@ class AddInformationFullFragment : Fragment() {
         }
 
         extendedFabClean.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment())
-                .navigate(R.id.action_navigation_add_full_information_to_navigation_add_information)
+            if (isNotEmptyEditText())
+                NavHostFragment.findNavController(view.findFragment())
+                    .navigate(R.id.action_navigation_add_full_information_to_navigation_add_information)
         }
 
         extendedFabPush.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment())
-                .navigate(R.id.action_navigation_add_full_information_to_navigation_search)
+            if (inputEditTextColor.text.isNullOrEmpty()) inputTextColor.error = "Заполните поле"
+            if (inputEditTextBreed.text.isNullOrEmpty()) inputTextBreed.error =
+                "Заполните поле"
+            if (inputEditTextHeight.text.isNullOrEmpty()) inputTextHeight.error = "Заполните поле"
+            if (inputEditTextSpecifity.text.isNullOrEmpty()) inputTextSpecifity.error =
+                "Заполните поле"
+            if (inputEditTextPrice.text.isNullOrEmpty()) inputTextPrice.error = "Заполните поле"
+
+            if (isNotEmptyEditText())
+                NavHostFragment.findNavController(view.findFragment())
+                    .navigate(R.id.action_navigation_add_full_information_to_navigation_search)
         }
+    }
+
+    private fun isNotEmptyEditText() = !inputEditTextColor.text.isNullOrEmpty()
+            && !inputEditTextBreed.text.isNullOrEmpty()
+            && !inputEditTextHeight.text.isNullOrEmpty()
+            && !inputEditTextSpecifity.text.isNullOrEmpty()
+            && !inputEditTextPrice.text.isNullOrEmpty()
+
+    fun onClicked(str: String) {
+        specializationDialogFragment.dismiss()
+        inputEditTextSpecifity.setText(str)
     }
 }

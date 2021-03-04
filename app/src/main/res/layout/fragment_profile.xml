@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textLocation" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textYourAdverbs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -89,10 +89,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5">
+            app:layout_constraintTop_toBottomOf="@+id/textYourAdverbs">
 
             <LinearLayout
-                android:id="@+id/horizontalScrollViewAdverbsClick"
+                android:id="@+id/linearLayoutAdverbs"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">

@@ -14,12 +14,17 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
+        android:layout_marginTop="8dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
         android:hint="Мать"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextMather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -31,12 +36,15 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
+        android:layout_marginTop="8dp"
         android:hint="Отец"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextFather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -48,8 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
         android:hint="Пол"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextFather">
@@ -67,13 +76,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
         android:hint="Год рождения"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextSex">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextBirthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -85,8 +96,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="8dp"
         android:hint="Место рождения"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputTextBirthday">
@@ -99,17 +111,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/extendedFabNextBase"
+        android:id="@+id/buttonNextBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="10dp"
-        android:paddingVertical="10dp"
+        android:paddingVertical="8dp"
         android:text="Далее"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
         android:textSize="16sp"
-        app:backgroundTint="#607D8B"
+        android:background="#607D8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
