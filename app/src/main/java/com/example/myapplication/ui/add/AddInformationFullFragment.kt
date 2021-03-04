@@ -18,9 +18,9 @@ import kotlinx.android.synthetic.main.fragment_add_full_information.*
 class AddInformationFullFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_add_full_information, container, false)
     }
@@ -47,7 +47,7 @@ class AddInformationFullFragment : Fragment() {
 
         when (requestCode) {
             3 -> inputEditTextColor.setText(data?.getStringExtra("value"))
-            4 ->  inputEditTextBreed.setText(data?.getStringExtra("value"))
+            4 -> inputEditTextBreed.setText(data?.getStringExtra("value"))
         }
     }
 
@@ -55,14 +55,24 @@ class AddInformationFullFragment : Fragment() {
         inputEditTextColor.inputType = InputType.TYPE_NULL
         inputEditTextColor.setOnFocusChangeListener { _, focused ->
             if (focused) {
-                startActivityForResult(Intent(requireContext(), GenerateList::class.java).putExtra("value", "color"), 3)
+                startActivityForResult(
+                    Intent(
+                        requireContext(),
+                        GenerateList::class.java
+                    ).putExtra("value", "color"), 3
+                )
             }
         }
 
         inputEditTextBreed.inputType = InputType.TYPE_NULL
         inputEditTextBreed.setOnFocusChangeListener { _, focused ->
             if (focused) {
-                startActivityForResult(Intent(requireContext(), GenerateList::class.java).putExtra("value", "breed"), 4)
+                startActivityForResult(
+                    Intent(
+                        requireContext(),
+                        GenerateList::class.java
+                    ).putExtra("value", "breed"), 4
+                )
             }
         }
 
@@ -82,11 +92,13 @@ class AddInformationFullFragment : Fragment() {
         }
 
         extendedFabClean.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment()).navigate(R.id.action_navigation_add_full_information_to_navigation_add_information)
+            NavHostFragment.findNavController(view.findFragment())
+                .navigate(R.id.action_navigation_add_full_information_to_navigation_add_information)
         }
 
         extendedFabPush.setOnClickListener {
-            NavHostFragment.findNavController(view.findFragment()).navigate(R.id.action_navigation_add_full_information_to_navigation_search)
+            NavHostFragment.findNavController(view.findFragment())
+                .navigate(R.id.action_navigation_add_full_information_to_navigation_search)
         }
     }
 }
