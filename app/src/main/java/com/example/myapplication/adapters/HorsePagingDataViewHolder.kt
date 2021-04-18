@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
@@ -21,61 +23,67 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val color: TextView = view.findViewById(R.id.color)
     private val location: TextView = view.findViewById(R.id.location)
     private val price: TextView = view.findViewById(R.id.price)
+    private var imageButtonAddFavorite: ImageButton = view.findViewById(R.id.imageButtonAddFavorite)
     private val cardView: CardView = view.findViewById(R.id.cardView)
 
-    private lateinit var parentHorse: ViewGroup
-
-    private var horse: Horse? = null
-
     fun bind(horse: Horse?) {
-        name.text = horse?.name
-        age.text = horse?.age
-        mother.text = horse?.mother
-        father.text = horse?.father
-        color.text = horse?.color
-        location.text = horse?.location
-        price.text = horse?.price
+        name.text = horse?.document?.name ?: "-"
+        age.text = horse?.document?.yearBirth ?: "-"
+        mother.text = horse?.document?.mother ?: "-"
+        father.text = "${horse?.document?.father ?: "-"} - "
+        color.text = horse?.document?.color?.color ?: "-"
+        location.text = horse?.document?.location?.city ?: "-"
+        price.text = "${horse?.price ?:"р"}"
+        //imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
     }
 
-    fun initListeners(horse: Horse) {
-        cardView.imageButtonAddFavorite.setOnClickListener {
-            if (horse.favorite) {
-                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-                horse.favorite = false
-            } else {
-                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-                horse.favorite = true
-            }
-        }
+    fun initListeners(horse: Horse?) {
+//        cardView.imageButtonAddFavorite.setOnClickListener {
+//            if (horse.favorite) {
+//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
+//                horse.favorite = false
+//            } else {
+//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+//                horse.favorite = true
+//            }
+//        }
 
         //TODO поменять для избранного
         cardView.setOnClickListener {
-            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_search_to_detailInformationActivity)
+            val bundle = bundleOf("ID" to horse?.idHorse)
+            NavHostFragment
+                .findNavController(cardView.findFragment())
+                .navigate(R.id.action_navigation_search_to_detailInformationActivity, bundle)
         }
 
         cardView.scrollLayout.setOnClickListener {
-            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_search_to_viewingImagesActivity)
+            NavHostFragment
+                .findNavController(cardView.findFragment())
+                .navigate(R.id.action_navigation_search_to_viewingImagesActivity)
         }
     }
 
     fun setFavoriteOn(horse: Horse) {
-        cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-        horse.favorite = true
+        imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+//        horse.favorite = true
     }
 
     fun initListenersFavorite(horse: Horse) {
-        cardView.imageButtonAddFavorite.setOnClickListener {
-            if (horse.favorite) {
-                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-                horse.favorite = false
-            } else {
-                cardView.imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-                horse.favorite = true
-            }
-        }
+//        cardView.imageButtonAddFavorite.setOnClickListener {
+//            if (horse.favorite) {
+//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+//                horse.favorite = false
+//            } else {
+//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
+//                horse.favorite = true
+//            }
+//        }
 
         cardView.setOnClickListener {
-            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_favourite_to_detailInformationActivity)
+            val bundle = bundleOf("ID" to horse.idHorse)
+            NavHostFragment
+                .findNavController(cardView.findFragment())
+                .navigate(R.id.action_navigation_favourite_to_detailInformationActivity, bundle)
         }
 
         cardView.scrollLayout.setOnClickListener {

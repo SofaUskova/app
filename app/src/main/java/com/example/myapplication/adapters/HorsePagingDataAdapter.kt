@@ -5,49 +5,38 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.models.UiModel
+import com.example.myapplication.models.Horse
+import com.example.myapplication.adapters.HorsePagingDataViewHolder as HorsePagingDataViewHolder1
 
-class HorsePagingDataAdapter : PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(UI_MODEL_COMPARATOR) {
+class HorsePagingDataAdapter :
+    PagingDataAdapter<Horse, RecyclerView.ViewHolder>(UI_MODEL_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == R.layout.cardview_horse) {
-            HorsePagingDataViewHolder.create(parent)
-        } else {
-            SeparatorViewHolder.create(parent)
-        }
+            return HorsePagingDataViewHolder1.create(parent)
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is UiModel.HorseItem -> R.layout.cardview_horse
-            is UiModel.SeparatorItem -> R.layout.item_separator
-            null -> throw UnsupportedOperationException("Unknown view")
+            is Horse -> R.layout.cardview_horse
+            else -> throw UnsupportedOperationException("HorsePagingDataAdapter: Unknown view")
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val uiModel = getItem(position)
-        uiModel.let {
-            when (uiModel) {
-                is UiModel.HorseItem -> {
-                    (holder as HorsePagingDataViewHolder).bind(uiModel.horse)
-                    (holder as HorsePagingDataViewHolder).initListeners(uiModel.horse)
-                }
-                is UiModel.SeparatorItem -> (holder as SeparatorViewHolder).bind(uiModel.description)
-            }
+        val horse = getItem(position)
+        horse.let {
+            (holder as HorsePagingDataViewHolder1).bind(horse)
+            holder.initListeners(horse)
         }
     }
 
     companion object {
-        private val UI_MODEL_COMPARATOR = object : DiffUtil.ItemCallback<UiModel>() {
-            override fun areItemsTheSame(oldItem: UiModel, newItem: UiModel): Boolean {
-                return (oldItem is UiModel.HorseItem && newItem is UiModel.HorseItem &&
-                        oldItem.horse.id == newItem.horse.id) ||
-                        (oldItem is UiModel.SeparatorItem && newItem is UiModel.SeparatorItem &&
-                                oldItem.description == newItem.description)
+        private val UI_MODEL_COMPARATOR = object : DiffUtil.ItemCallback<Horse>() {
+            override fun areItemsTheSame(oldItem: Horse, newItem: Horse): Boolean {
+                return (oldItem.idHorse == newItem.idHorse)
             }
 
-            override fun areContentsTheSame(oldItem: UiModel, newItem: UiModel): Boolean =
+            override fun areContentsTheSame(oldItem: Horse, newItem: Horse): Boolean =
                 oldItem == newItem
         }
     }

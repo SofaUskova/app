@@ -1,45 +1,53 @@
 package com.example.myapplication
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.myapplication.db.AppDatabase
+import com.example.myapplication.api.NetworkService
 import com.example.myapplication.models.Horse
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
-import java.io.IOException
 
-class HorsePagingSource(
-    private val appDatabase: AppDatabase,
-    private val sortByMore: Boolean? = null
-) : PagingSource<Int, Horse>() {
+class HorsePagingSource(private val isFavorite: Boolean) : PagingSource<Int, Horse>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Horse> {
-        return try {
-            val nextKey = params.key ?: 1
+        val nextKey = params.key ?: 1
 
-            val list = withContext(Dispatchers.IO) {
-                //delay(2000)
-                appDatabase.daoHorse().getAll()
-            }
+        val list = withContext(Dispatchers.IO) {
+           if(isFavorite) getFavoriteHorse() else getHorses()
+        }
 
-            LoadResult.Page(
-                data = sortedData(sortByMore, list) ?: list,
-                prevKey = if (nextKey == 1) null else nextKey - 1,
-                nextKey = if (nextKey == 10) null else nextKey + 1
-            )
-        } catch (exception: IOException) {
-            return LoadResult.Error(exception)
+        return LoadResult.Page(
+            data = list,
+            prevKey = if (nextKey == 1) null else nextKey - 1,
+            nextKey = if (nextKey == 5) null else nextKey + 1
+        )
+    }
+
+    private fun getFavoriteHorse(): List<Horse> {
+        //TODO seller id
+        return  try {
+            NetworkService.getInstance()
+                ?.getJSONApi()
+                ?.getFavoriteHorses(2)
+                ?.execute()
+                ?.body()!!
+        } catch (e: Exception) {
+            Log.e("ExceptionGetFavHor", e.message ?: "")
+            listOf()
         }
     }
 
-    private fun sortedData(sortByMore: Boolean?, list: List<Horse>): List<Horse>? {
-        return sortByMore?.let {isSorted ->
-            if (isSorted) {
-                list.sortedBy { it.price?.toInt() }
-            } else {
-                list.sortedByDescending { it.price?.toInt() }
-            }
+    private fun getHorses(): List<Horse> {
+        return try {
+            NetworkService.getInstance()
+                ?.getJSONApi()
+                ?.getAllHorses()
+                ?.execute()
+                ?.body()!!
+        } catch (e: Exception) {
+            Log.e("ExceptionGetHor", e.message ?: "")
+            listOf()
         }
     }
 

@@ -68,6 +68,9 @@
             android:id="@+id/inputEditTextHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="3"
+            android:text="187"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,6 +111,31 @@
             android:id="@+id/inputEditTextPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="15"
+            android:text="259 999"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextInfo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_clear_white"
+        android:hint="Информация"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextPrice">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditTextInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="нет"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

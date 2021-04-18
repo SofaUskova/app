@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.myapplication.ui.add.AddInformationBaseFragment
-import com.example.myapplication.ui.add.AddInformationFullFragment
+import android.widget.TextView
+import com.example.myapplication.ui.uiClasses.AddInformationBaseFragment
+import com.example.myapplication.ui.uiClasses.AddInformationFragment
+import com.example.myapplication.ui.uiClasses.AddInformationFullFragment
+import com.example.myapplication.ui.uiClasses.FilterActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.android.synthetic.main.bottom_sheet_doc_type.*
 import kotlinx.android.synthetic.main.bottom_sheet_sex.*
 import kotlinx.android.synthetic.main.bottom_sheet_specialization.*
 import kotlinx.android.synthetic.main.bottom_sheet_specialization.buttonNone
@@ -19,10 +23,11 @@ class DialogFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        layout = R.layout.bottom_sheet_sex
-        when (arguments?.getString("value")) {
-            "sex" -> layout = R.layout.bottom_sheet_sex
-            "specialization" -> layout = R.layout.bottom_sheet_specialization
+        layout = when (arguments?.getString("value")) {
+            "sex" -> R.layout.bottom_sheet_sex
+            "specialization" -> R.layout.bottom_sheet_specialization
+            "docType" -> R.layout.bottom_sheet_doc_type
+            else -> R.layout.bottom_sheet_sex
         }
 
         return inflater.inflate(
@@ -34,42 +39,63 @@ class DialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        when(layout) {
-            R.layout.bottom_sheet_sex-> setListenersGender()
+        when (layout) {
+            R.layout.bottom_sheet_sex -> setListenersGender()
             R.layout.bottom_sheet_specialization -> setListenersSpecialization()
+            R.layout.bottom_sheet_doc_type -> setListenerDocType()
         }
+    }
 
+    private fun setListenerDocType() {
+        initListener(buttonPassport)
+        initListener(buttonPassportFSKR)
+        initListener(buttonVetPassport)
+        initListener(buttonPassportNone)
     }
 
     private fun setListenersSpecialization() {
-        buttonJumping.setOnClickListener {
-            (parentFragment as AddInformationFullFragment?)?.onClicked(buttonJumping.text.toString())
-        }
-
-        buttonDressage.setOnClickListener {
-            (parentFragment as AddInformationFullFragment?)?.onClicked(buttonDressage.text.toString())
-        }
-
-        buttonTriathlon.setOnClickListener {
-            (parentFragment as AddInformationFullFragment?)?.onClicked(buttonTriathlon.text.toString())
-        }
-
-        buttonNone.setOnClickListener {
-            (parentFragment as AddInformationFullFragment?)?.onClicked(buttonNone.text.toString())
-        }
+        initListener(buttonJumping)
+        initListener(buttonDressage)
+        initListener(buttonTriathlon)
+        initListener(buttonNone)
     }
 
     private fun setListenersGender() {
-        buttonFemale.setOnClickListener {
-            (parentFragment as AddInformationBaseFragment?)?.onClicked(buttonFemale.text.toString())
-        }
+        initListenerGender(buttonFemale)
+        initListenerGender(buttonMale)
+        initListenerGender(buttonNone)
+    }
 
-        buttonMale.setOnClickListener {
-            (parentFragment as AddInformationBaseFragment?)?.onClicked(buttonMale.text.toString())
+    private fun initListener(button: TextView) {
+        button.setOnClickListener {
+            when {
+                (parentFragment is AddInformationFullFragment?) -> (parentFragment as AddInformationFullFragment?)?.onClicked(
+                    button.text.toString()
+                )
+                (parentFragment is AddInformationBaseFragment?) -> (parentFragment as AddInformationBaseFragment).onClicked(
+                    button.text.toString()
+                )
+                (parentFragment is AddInformationFragment?) -> (parentFragment as AddInformationFragment).onClicked(
+                    button.text.toString()
+                )
+            }
         }
+    }
 
-        buttonNone.setOnClickListener {
-            (parentFragment as AddInformationBaseFragment?)?.onClicked(buttonNone.text.toString())
+    private fun initListenerGender(button: TextView) {
+        button.setOnClickListener {
+            if (parentFragment != null) {
+                when {
+                    (parentFragment is AddInformationBaseFragment?) -> (parentFragment as AddInformationBaseFragment).onClicked(
+                        button.text.toString()
+                    )
+                    (parentFragment is AddInformationFragment?) -> (parentFragment as AddInformationFragment).onClicked(
+                        button.text.toString()
+                    )
+                }
+            } else {
+                (activity as FilterActivity?)?.onClickedGender(button.text.toString())
+            }
         }
     }
 }

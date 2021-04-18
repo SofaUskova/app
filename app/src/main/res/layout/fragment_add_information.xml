@@ -43,6 +43,7 @@
                 android:id="@+id/inputEditTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="кличка"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,8 +64,52 @@
                 android:id="@+id/inputEditTextRegion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Орел"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTextDocuments"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:hint="Документы"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_clear_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputTextRegion">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextDocuments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Пасспорт лошади"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTextOrganization"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:hint="Организация"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_clear_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputTextDocuments">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextOrganization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Организация"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/buttonNext"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="horizontal">
@@ -67,296 +68,264 @@
             android:id="@+id/viewTwo"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="8dp"
             android:background="#ECEFF1"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-        <TableLayout
+        <GridLayout
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:columnCount="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewTwo">
 
-            <TableRow
+            <TextView
+                android:id="@+id/name"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="18sp"
+                tools:text="Клюква" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="18sp"
+                tools:text="250 000р" />
+
+            <View
+                android:layout_height="1dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Год рождения"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dateBirth"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="2010г.р." />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Пол"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Кобыла" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Порода"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/breed"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Тракененская" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Масть"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Соловая" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Отец"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/father"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Карнавал" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Мать"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mother"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Балерина" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Высота в холке"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="173см" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Местоположение"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Орловкая обл, г. Орел" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Специализация"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/specialization"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Конкур" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Организация"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/organization"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="КСК Образцово" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Тавро"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/brand"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="34" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Отметины"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/marks"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Носок на левой задней ноге" />
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="Документы"
+                android:textColor="#90A4AE"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/docType"
+                android:layout_columnWeight="1"
+                android:text="-"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                tools:text="Пасспорт лошади" />
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp">
+                android:layout_height="1dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1" />
 
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Клюква"
-                    android:textColor="#263238"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="250 000р"
-                    android:textColor="#263238"
-                    android:textSize="18sp" />
-
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/allInform"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp">
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="4"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/text_long_info"
+                tools:visibility="visible" />
 
-                <View
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="#ECEFF1" />
-
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/allInformButton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Год рождения"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="2010г.р."
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Пол"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Кобыла"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Порода"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Тракененская"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Масть"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Соловая"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Отец"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Карнавал"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Мать"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Балерина"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Высота в холке"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="173см"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Местоположение"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Орловкая обл, г. Орел"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Документы"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="ВНИИК"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Место рождения"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Орловкая обл, г. Орел"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Специализация"
-                    android:textColor="#90A4AE"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_weight="1"
-                    android:text="Конкур"
-                    android:textColor="#263238"
-                    android:textSize="12sp" />
-
-            </TableRow>
-
-        </TableLayout>
-
-        <View
-            android:id="@+id/viewHour"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="#ECEFF1"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-        <TextView
-            android:id="@+id/textFreeInformation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:lineSpacingExtra="4dp"
-            android:maxLines="4"
-            android:text="@string/text_long_info"
-            android:textColor="#263238"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewHour" />
-
-        <TextView
-            android:id="@+id/textFreeInformationOpen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/text_read_next"
-            android:textColor="#607D8B"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textFreeInformation" />
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#607D8B"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/text_read_next"
+                tools:visibility="visible" />
+        </GridLayout>
 
         <View
             android:id="@+id/viewSix"
@@ -364,7 +333,9 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="#ECEFF1"
-            app:layout_constraintTop_toBottomOf="@+id/textFreeInformationOpen" />
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/imageButtonShare"
@@ -423,12 +394,12 @@
             android:layout_marginStart="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/kiany"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintBottom_toBottomOf="@+id/sellerLocation"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
+            app:layout_constraintTop_toTopOf="@+id/sellerName" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/sellerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -440,15 +411,15 @@
             app:layout_constraintTop_toBottomOf="@+id/viewFifty" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/sellerLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="КСК “Серебрянная подкова”"
             android:textColor="#263238"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toStartOf="@+id/sellerName"
+            app:layout_constraintTop_toBottomOf="@+id/sellerName" />
 
         <Button
             android:id="@+id/floatButtonTelephone"
@@ -466,7 +437,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/sellerLocation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,12 +7,14 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
-import com.example.myapplication.ui.filter.FilterActivity
+import com.example.myapplication.interfeises.OnActivityDataListener
+import com.example.myapplication.ui.uiClasses.FilterActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
+    private var mListener: OnActivityDataListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         initController()
         setListeners()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+//        val fragment = supportFragmentManager.fragments.first().childFragmentManager.fragments.first()
+//        mListener = fragment as OnActivityDataListener
+//
+//        mListener?.onActivityDataListener()
     }
 
     private fun initController() {
@@ -32,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         extendedFabFilter.setOnClickListener {
-            startActivity(Intent(this, FilterActivity::class.java))
+            startActivityForResult(Intent(this, FilterActivity::class.java), 1)
         }
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->

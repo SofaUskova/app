@@ -2,14 +2,33 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E5E5E5"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imageButtonLogout"
+        android:layout_width="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_logout_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageButtonAddSettings"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:src="@drawable/ic_settings_black"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/imageButtonLogout"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <ImageView
         android:id="@+id/imageButtonAddPhoto"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/saler"
+        android:src="@drawable/ic_add_photo"
         app:layout_constraintBottom_toTopOf="@+id/constrainInform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,38 +44,40 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/sellerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#263238"
             android:textSize="24sp"
-            android:text="Киану Ривз"
+            android:text="-"
+            tools:text="Киану Ривз"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textPhone"
+            android:id="@+id/sellerPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:textColor="#263238"
             android:textSize="14sp"
-            android:text="8 915 507 74 93"
+            android:text="-"
+            tools:text="8 915 507 74 93"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
+            app:layout_constraintTop_toBottomOf="@+id/sellerName" />
 
         <TextView
-            android:id="@+id/textLocation"
+            android:id="@+id/sellerLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="г. Орел КСК “Зеленый берег”"
+            android:text="-"
+            tools:text="г. Орел КСК “Зеленый берег”"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+            app:layout_constraintTop_toBottomOf="@+id/sellerPhone" />
 
         <View
             android:id="@+id/viewSix1"
@@ -65,111 +86,57 @@
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="32dp"
             android:background="#ECEFF1"
-            app:layout_constraintTop_toBottomOf="@+id/textLocation" />
+            app:layout_constraintTop_toBottomOf="@+id/sellerLocation" />
 
-        <TextView
-            android:id="@+id/textYourAdverbs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Ваши объявления"
-            android:textColor="#607D8B"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewSix1" />
+<!--        <TextView-->
+<!--            android:id="@+id/textYourAdverbs"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Ваши объявления"-->
+<!--            android:textColor="#607D8B"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/viewSix1" />-->
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollViewAdverbs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:paddingStart="16dp"
-            android:scrollbars="none"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textYourAdverbs">
+<!--        <TextView-->
+<!--            android:id="@+id/buttonYourAdverbs"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Смотреть все"-->
+<!--            android:textColor="#607D8B"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/viewSix1" />-->
 
-            <LinearLayout
-                android:id="@+id/linearLayoutAdverbs"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+<!--        <HorizontalScrollView-->
+<!--            android:id="@+id/horizontalScrollViewAdverbs"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:paddingStart="16dp"-->
+<!--            android:scrollbars="none"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textYourAdverbs">-->
 
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/f" />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linearLayoutAdverbs"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/p" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/d" />
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/i" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/d" />
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/p" />
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/f" />
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/i" />
-
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/d" />
-            </LinearLayout>
-
-        </HorizontalScrollView>
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView5"-->
+<!--                    android:layout_width="105dp"-->
+<!--                    android:layout_height="105dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    app:srcCompat="@drawable/f" />-->
+<!--            </LinearLayout>-->
+<!--        </HorizontalScrollView>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

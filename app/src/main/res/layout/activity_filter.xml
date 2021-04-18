@@ -45,43 +45,6 @@
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputTextMather"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="8dp"
-                android:hint="Мать">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputTextFather"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="8dp"
-                android:hint="Отец">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputTextSex"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -99,7 +62,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputTextBirthday"
+            android:id="@+id/inputTextYearBirth"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,24 +71,10 @@
             android:hint="Год рождения">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextYearBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputTextPlace"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            android:hint="Место рождения">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputEditTextPlace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:inputType="date"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,39 +120,10 @@
             android:hint="Высота в холке">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEditTextHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputTextSpecifity"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            android:hint="Специализация">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputEditTextSpecifity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputTextPrice"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            android:hint="Цена">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:inputType="number"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -221,7 +141,6 @@
             android:textSize="16sp"
             android:visibility="visible"
             app:backgroundTint="#607D8B" />
-
     </LinearLayout>
 </ScrollView>
 

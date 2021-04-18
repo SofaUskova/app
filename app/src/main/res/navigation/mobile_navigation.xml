@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.myapplication.ui.search.SearchFragment"
+        android:name="com.example.myapplication.ui.uiClasses.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search">
 
@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/navigation_favourite"
-        android:name="com.example.myapplication.ui.favorite.FavoriteFragment"
+        android:name="com.example.myapplication.ui.uiClasses.FavoriteFragment"
         android:label="@string/title_favourites"
         tools:layout="@layout/fragment_favourite">
 
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/navigation_add_information"
-        android:name="com.example.myapplication.ui.add.AddInformationFragment"
+        android:name="com.example.myapplication.ui.uiClasses.AddInformationFragment"
         android:label="@string/title_ads"
         tools:layout="@layout/fragment_add_information">
 
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/navigation_add_base_information"
-        android:name="com.example.myapplication.ui.add.AddInformationBaseFragment"
+        android:name="com.example.myapplication.ui.uiClasses.AddInformationBaseFragment"
         tools:layout="@layout/fragment_add_base_information">
 
         <action
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/navigation_add_full_information"
-        android:name="com.example.myapplication.ui.add.AddInformationFullFragment"
+        android:name="com.example.myapplication.ui.uiClasses.AddInformationFullFragment"
         tools:layout="@layout/fragment_add_full_information">
 
         <action
@@ -76,38 +76,37 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.myapplication.ui.profile.ProfileFragment"
+        android:name="com.example.myapplication.ui.uiClasses.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" >
 
         <action
             android:id="@+id/action_navigation_profile_to_adverbsListFragment"
             app:destination="@id/adverbsListFragment" />
-
-        <action
-            android:id="@+id/action_navigation_profile_to_detailInformationActivity"
-            app:destination="@id/detailInformationActivity" />
     </fragment>
 
     <activity
         android:id="@+id/detailInformationActivity"
-        android:name="com.example.myapplication.ui.detailInform.DetailInformationActivity"
+        android:name="com.example.myapplication.ui.uiClasses.DetailInformationActivity"
         android:label=""
-        tools:layout="@layout/activity_detail_information" />
+        tools:layout="@layout/activity_detail_information" >
+    </activity>
 
     <activity
         android:id="@+id/viewingImagesActivity"
-        android:name="com.example.myapplication.ui.fullScreenPhoto.ViewingImagesActivity"
+        android:name="com.example.myapplication.ui.uiClasses.ViewingImagesActivity"
         android:label=""
         tools:layout="@layout/activity_viewing_images" />
 
-    <activity
-        android:id="@+id/filterActivity"
-        android:name="com.example.myapplication.ui.filter.FilterActivity"
-        tools:layout="@layout/activity_filter" />
     <fragment
         android:id="@+id/adverbsListFragment"
-        android:name="com.example.myapplication.ui.profile.AdverbsListFragment"
-        android:label="AdverbsListFragment" />
+        android:name="com.example.myapplication.ui.uiClasses.AdverbsListFragment"
+        android:label="AdverbsListFragment" >
+
+        <argument
+            android:name="ID"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 
 </navigation>

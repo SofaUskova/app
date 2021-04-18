@@ -7,11 +7,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.interfeises.OnItemClickListener
+import com.example.myapplication.models.Horse
+import kotlinx.android.synthetic.main.cardview_horse_little.view.*
 
-class GridAdapter(private val onItemClickListener: OnItemClickListener) :
+class GridAdapter(private val onItemClickListener: OnItemClickListener, val horses: List<Horse>) :
     RecyclerView.Adapter<GridAdapter.MyViewHolder>() {
 
-    override fun getItemCount() = 15
+    override fun getItemCount() = horses.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -26,10 +28,13 @@ class GridAdapter(private val onItemClickListener: OnItemClickListener) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        holder.cardView.setOnClickListener {
             onItemClickListener.onItemClicked(
-                position,
+                position + 1,
                 ""
             )
         }
+
+        holder.cardView.horseName.text = horses[position].document.name
+        holder.cardView.horsePrice.text = "horses[position].price"
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

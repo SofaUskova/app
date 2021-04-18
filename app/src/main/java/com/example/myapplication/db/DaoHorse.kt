@@ -11,6 +11,6 @@ interface DaoHorse {
     @Delete
     fun delete(horse: Horse)
 
-    @Query("SELECT * FROM horses")
+    @Query("SELECT * FROM horse")
     fun getAll(): List<Horse>
 }

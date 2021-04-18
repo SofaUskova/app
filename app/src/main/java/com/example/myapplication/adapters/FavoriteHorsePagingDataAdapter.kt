@@ -24,7 +24,7 @@ class FavoriteHorsePagingDataAdapter :
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<Horse>() {
             override fun areItemsTheSame(oldItem: Horse, newItem: Horse): Boolean =
-                oldItem.id == newItem.id
+                oldItem.idHorse == newItem.idHorse
 
             override fun areContentsTheSame(oldItem: Horse, newItem: Horse): Boolean =
                 oldItem == newItem

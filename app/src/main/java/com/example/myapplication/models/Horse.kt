@@ -1,27 +1,26 @@
 package com.example.myapplication.models
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "horses")
+@Entity
 data class Horse(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    @ColumnInfo(name = "name")
-    val name: String?,
-    @ColumnInfo(name = "age")
-    val age: String?,
-    @ColumnInfo(name = "mother")
-    val mother: String?,
-    @ColumnInfo(name = "father")
-    val father: String?,
-    @ColumnInfo(name = "color")
-    val color: String?,
-    @ColumnInfo(name = "location")
-    val location: String?,
-    @ColumnInfo(name = "price")
-    val price: String?,
-    @ColumnInfo(name = "favorite")
-    var favorite: Boolean = false
+    @PrimaryKey
+    @SerializedName("idHorse")
+    @Expose
+    val idHorse: Int,
+    @SerializedName("document")
+    @Expose
+    var document: Document,
+    @SerializedName("image")
+    @Expose
+    val image: Image?,
+    @SerializedName("allInform")
+    @Expose
+    val allInform: String?,
+    @SerializedName("price")
+    @Expose
+    val price: String
 )
