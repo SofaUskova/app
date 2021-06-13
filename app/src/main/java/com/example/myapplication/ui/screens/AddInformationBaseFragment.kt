@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment
-import com.example.myapplication.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.utils.deleteError
 import com.example.myapplication.utils.selectItemDialogFragment
@@ -53,11 +52,9 @@ class AddInformationBaseFragment : Fragment() {
             }
         }
 
-        deleteError(inputEditTextMather, inputTextMather)
-        deleteError(inputEditTextFather, inputTextFather)
         deleteError(inputEditTextBirthday, inputTextBirthday)
-        deleteError(inputEditTextBrand, inputTextBrand)
-        deleteError(inputEditTextMarks, inputTextMarks)
+        deleteError(inputEditTextSex, inputTextBrand)
+
         selectItemDialogFragment(inputEditTextSex, "sex", genderDialogFragment, childFragmentManager)
     }
 
@@ -71,20 +68,12 @@ class AddInformationBaseFragment : Fragment() {
         "marks" to inputEditTextMarks.text.toString()
     )
 
-    private fun isNotEmptyAllFields() = !inputEditTextMather.text.isNullOrEmpty()
-            && !inputEditTextFather.text.isNullOrEmpty()
-            && !inputEditTextSex.text.isNullOrEmpty()
+    private fun isNotEmptyAllFields() = !inputEditTextSex.text.isNullOrEmpty()
             && !inputEditTextBirthday.text.isNullOrEmpty()
-            && !inputEditTextBrand.text.isNullOrEmpty()
-            && !inputEditTextMarks.text.isNullOrEmpty()
 
     private fun setError() {
-        if (inputEditTextMather.text.isNullOrEmpty()) inputTextMather.error = "Заполните поле"
-        if (inputEditTextFather.text.isNullOrEmpty()) inputTextFather.error = "Заполните поле"
         if (inputEditTextSex.text.isNullOrEmpty()) inputTextSex.error = "Заполните поле"
         if (inputEditTextBirthday.text.isNullOrEmpty()) inputTextBirthday.error = "Заполните поле"
-        if (inputEditTextBrand.text.isNullOrEmpty()) inputTextBrand.error = "Заполните поле"
-        if (inputEditTextMarks.text.isNullOrEmpty()) inputTextMarks.error = "Заполните поле"
     }
 
     fun onClicked(str: String) {

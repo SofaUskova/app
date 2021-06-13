@@ -1,6 +1,5 @@
 package com.example.myapplication.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.models.Horse
-import kotlinx.android.synthetic.main.cardview_horse.view.*
+import com.example.myapplication.models.SalesContract
 
 class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val name: TextView = view.findViewById(R.id.name)
@@ -26,14 +25,14 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var imageButtonAddFavorite: ImageButton = view.findViewById(R.id.imageButtonAddFavorite)
     private val cardView: CardView = view.findViewById(R.id.cardView)
 
-    fun bind(horse: Horse?) {
-        name.text = horse?.document?.name ?: "-"
-        age.text = horse?.document?.yearBirth ?: "-"
-        mother.text = horse?.document?.mother ?: "-"
-        father.text = "${horse?.document?.father ?: "-"} - "
-        color.text = horse?.document?.color?.color ?: "-"
-        location.text = horse?.document?.location?.city ?: "-"
-        price.text = "${horse?.price ?:"р"}"
+    fun bind(horse: Horse?, contract: SalesContract) {
+        name.text = horse?.name ?: "-"
+        age.text = horse?.yearBirth ?: "-"
+        mother.text = horse?.mother ?: "-"
+        father.text = "${horse?.father ?: "-"} - "
+        color.text = horse?.color?.color ?: "-"
+        location.text = horse?.location?.city ?: "-"
+        price.text = "${contract.price}р"
         //imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
     }
 
@@ -48,18 +47,11 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //            }
 //        }
 
-        //TODO поменять для избранного
         cardView.setOnClickListener {
             val bundle = bundleOf("ID" to horse?.idHorse)
             NavHostFragment
                 .findNavController(cardView.findFragment())
                 .navigate(R.id.action_navigation_search_to_detailInformationActivity, bundle)
-        }
-
-        cardView.scrollLayout.setOnClickListener {
-            NavHostFragment
-                .findNavController(cardView.findFragment())
-                .navigate(R.id.action_navigation_search_to_viewingImagesActivity)
         }
     }
 
@@ -85,18 +77,10 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 .findNavController(cardView.findFragment())
                 .navigate(R.id.action_navigation_favourite_to_detailInformationActivity, bundle)
         }
-
-        cardView.scrollLayout.setOnClickListener {
-            NavHostFragment.findNavController(cardView.findFragment()).navigate(R.id.action_navigation_favourite_to_viewingImagesActivity)
-        }
     }
 
     companion object {
-
-        private lateinit var context: Context
-
         fun create(parent: ViewGroup): HorsePagingDataViewHolder {
-            context = parent.context
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.cardview_horse, parent, false)
             return HorsePagingDataViewHolder(view)

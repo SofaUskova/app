@@ -14,10 +14,10 @@ data class SalesContract(
     @SerializedName("price")
     @Expose
     val price: String,
+    @SerializedName("horse")
+    @Expose
+    val horse: Horse,
     @SerializedName("seller")
     @Expose
-    val seller: Seller,
-    @SerializedName("objectOfSales")
-    @Expose
-    val objectOfSales: Document
+    val seller: Seller
 )

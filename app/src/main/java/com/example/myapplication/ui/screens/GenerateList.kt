@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.ui.viewModels.GenerateListViewModel
 import com.example.myapplication.R
 import com.example.myapplication.adapters.ListAdapter
-import com.example.myapplication.interfeises.OnItemClickListener
+import com.example.myapplication.interfaces.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.toolbar.*
 

@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,14 +12,15 @@ import com.example.myapplication.models.Location
 import com.example.myapplication.models.Seller
 import com.example.myapplication.models.UserPrincipal
 import com.example.myapplication.ui.MainActivity
-import kotlinx.android.synthetic.main.registration_fragment.*
+import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationActivity : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences.Editor
     private lateinit var viewModel: RegistrationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.registration_fragment)
+        setContentView(R.layout.fragment_registration)
         viewModel = ViewModelProvider(this).get(RegistrationViewModel::class.java)
 
         initListeners()
@@ -26,17 +28,33 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun initObservable() {
-        viewModel.isSuccessful.observe(this, Observer {
-            if(it) {
+        viewModel.isSuccess.observe(this, Observer {
+            if (it) {
+                createSharedPreference()
+
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
-                Toast.makeText(this, "Произошла ошибка", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Произошла ошибка на сервере", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
+    private fun createSharedPreference() {
+        sharedPreferences =
+            getSharedPreferences("SellerPreference", MODE_PRIVATE).edit()
+        sharedPreferences.apply {
+            putString("NAME", inputEditTextName.text.toString())
+            putString("PHONE", inputEditTextPhone.text.toString())
+            putString("LOCATION", inputEditTextLocation.text.toString())
+        }.apply()
+    }
+
     private fun initListeners() {
+        entry.setOnClickListener {
+            onBackPressed()
+        }
+
         buttonNextBase.setOnClickListener {
             val name = inputEditTextName.text.toString()
             val phone = inputEditTextPhone.text.toString()
@@ -44,22 +62,23 @@ class RegistrationActivity : AppCompatActivity() {
             val login = inputEditTextLogin.text.toString()
             val password = inputEditTextPassword.text.toString()
 
-            val newSeller = Seller(
-                idSeller = 5,
-                name = name,
-                phone = phone,
-                location = Location(1, "Россия", location),
-                login = UserPrincipal(login, password),
-                image = null,
-                favoriteHorses = null
-            )
+            if (phone.length == 10) {
+                val newSeller = Seller(
+                    name = name,
+                    phone = phone,
+                    //TODO
+                    location = Location(idLocation = 1, city = location),
+                    userPrincipal = UserPrincipal(login, password)
+                )
 
-            if (name.isNotEmpty() && phone.isNotEmpty() && location.isNotEmpty() && login.isNotEmpty() && password.isNotEmpty()) {
-                viewModel.addSeller(newSeller)
+                if (name.isNotEmpty() && phone.isNotEmpty() && location.isNotEmpty() && login.isNotEmpty() && password.isNotEmpty()) {
+                    viewModel.addSeller(newSeller)
+                } else {
+                    Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                //TODO вывод ошибки
+                Toast.makeText(this, "Введите номер телефона без пробелов и без кода страны", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
 }

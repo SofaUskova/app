@@ -11,7 +11,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginVertical="8dp"
         android:hint="ФИО"
         app:errorEnabled="true"
@@ -23,6 +23,7 @@
             android:id="@+id/inputEditTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -31,7 +32,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginVertical="8dp"
         android:hint="Телефон"
         app:errorEnabled="true"
@@ -52,7 +53,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginVertical="8dp"
         android:hint="Город"
         app:errorEnabled="true"
@@ -73,7 +74,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginVertical="8dp"
         android:hint="Логин"
         app:errorEnabled="true"
@@ -93,7 +94,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginVertical="8dp"
         android:hint="Пароль"
         app:errorEnabled="true"
@@ -110,10 +111,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/entry"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:paddingBottom="16dp"
+        android:paddingEnd="8dp"
         android:text="Вход"
+        android:gravity="right"
         app:layout_constraintStart_toStartOf="@+id/inputTexPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputTexPassword" />
 
@@ -121,10 +126,10 @@
         android:id="@+id/buttonNextBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:layout_marginBottom="10dp"
         android:paddingVertical="8dp"
-        android:text="Продолжить"
+        android:text="Зарегистрироваться"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
         android:textSize="16sp"

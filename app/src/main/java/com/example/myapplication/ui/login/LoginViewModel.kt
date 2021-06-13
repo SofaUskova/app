@@ -11,28 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
-    val currentSeller = MutableLiveData<Seller>()
-
-    fun entry(login: String) {
-        NetworkService.getInstance()
-            ?.getJSONApi()
-            ?.entry(login)
-            ?.enqueue(object : Callback<UserPrincipal> {
-                override fun onResponse(
-                    call: Call<UserPrincipal>,
-                    response: Response<UserPrincipal>
-                ) {
-                    if (response.isSuccessful) {
-                        Log.e("onResponse isSuccessful", response.body().toString())
-                        getSeller(login)
-                    }
-                }
-
-                override fun onFailure(call: Call<UserPrincipal>, t: Throwable) {
-                    Log.e("onFailure", t.toString())
-                }
-            })
-    }
+    val currentSeller = MutableLiveData<Seller?>()
 
     fun getSeller(login: String) {
         NetworkService.getInstance()
@@ -44,13 +23,17 @@ class LoginViewModel : ViewModel() {
                     response: Response<Seller>
                 ) {
                     if (response.isSuccessful) {
-                        Log.e("onResponse isSuccessful", response.body().toString())
+                        Log.e("entry", "onResponseSuccessful ${response.body().toString()}")
                         currentSeller.postValue(response.body())
+                    } else {
+                        Log.e("entry", "onResponseNotSuccessful ${response.body().toString()}")
+                        currentSeller.postValue(null)
                     }
                 }
 
                 override fun onFailure(call: Call<Seller>, t: Throwable) {
-                    Log.e("onFailure", t.toString())
+                    Log.e("entry", "onFailure $t")
+                    currentSeller.postValue(null)
                 }
             })
     }

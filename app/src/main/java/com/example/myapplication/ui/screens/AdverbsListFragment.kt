@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.adapters.GridAdapter
-import com.example.myapplication.interfeises.OnItemClickListener
+import com.example.myapplication.interfaces.OnItemClickListener
 import com.example.myapplication.models.Horse
 import com.example.myapplication.ui.viewModels.AdverbsListViewModel
 import kotlinx.android.synthetic.main.fragment_recyclerview.*

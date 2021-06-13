@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.interfeises.OnItemClickListener
+import com.example.myapplication.interfaces.OnItemClickListener
 
 class ListAdapter(private val list: List<String>, private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<ListAdapter.MyViewHolder>() {

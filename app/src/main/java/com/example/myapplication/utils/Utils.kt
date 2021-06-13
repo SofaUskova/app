@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.text.InputType
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.example.myapplication.DialogFragment
+import com.example.myapplication.ui.screens.DialogFragment
 import com.example.myapplication.models.DocumentType
 import com.example.myapplication.models.Gender
-import com.example.myapplication.ui.uiClasses.GenerateList
+import com.example.myapplication.ui.screens.GenerateList
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 

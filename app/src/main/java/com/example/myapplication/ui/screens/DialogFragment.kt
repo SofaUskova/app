@@ -1,19 +1,16 @@
-package com.example.myapplication
+package com.example.myapplication.ui.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.myapplication.ui.uiClasses.AddInformationBaseFragment
-import com.example.myapplication.ui.uiClasses.AddInformationFragment
-import com.example.myapplication.ui.uiClasses.AddInformationFullFragment
-import com.example.myapplication.ui.uiClasses.FilterActivity
+import com.example.myapplication.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.bottom_sheet_doc_type.*
-import kotlinx.android.synthetic.main.bottom_sheet_sex.*
-import kotlinx.android.synthetic.main.bottom_sheet_specialization.*
-import kotlinx.android.synthetic.main.bottom_sheet_specialization.buttonNone
+import kotlinx.android.synthetic.main.bottomsheet_doc_type.*
+import kotlinx.android.synthetic.main.bottomsheet_sex.*
+import kotlinx.android.synthetic.main.bottomsheet_specialization.*
+import kotlinx.android.synthetic.main.bottomsheet_specialization.buttonNone
 
 class DialogFragment : BottomSheetDialogFragment() {
     var layout: Int = 0
@@ -24,10 +21,10 @@ class DialogFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         layout = when (arguments?.getString("value")) {
-            "sex" -> R.layout.bottom_sheet_sex
-            "specialization" -> R.layout.bottom_sheet_specialization
-            "docType" -> R.layout.bottom_sheet_doc_type
-            else -> R.layout.bottom_sheet_sex
+            "sex" -> R.layout.bottomsheet_sex
+            "specialization" -> R.layout.bottomsheet_specialization
+            "docType" -> R.layout.bottomsheet_doc_type
+            else -> R.layout.bottomsheet_sex
         }
 
         return inflater.inflate(
@@ -40,9 +37,9 @@ class DialogFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         when (layout) {
-            R.layout.bottom_sheet_sex -> setListenersGender()
-            R.layout.bottom_sheet_specialization -> setListenersSpecialization()
-            R.layout.bottom_sheet_doc_type -> setListenerDocType()
+            R.layout.bottomsheet_sex -> setListenersGender()
+            R.layout.bottomsheet_specialization -> setListenersSpecialization()
+            R.layout.bottomsheet_doc_type -> setListenerDocType()
         }
     }
 

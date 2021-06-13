@@ -13,5 +13,8 @@ data class UserPrincipal(
     val login: String,
     @SerializedName("password")
     @Expose
-    val password: String
+    val password: String,
+    @SerializedName("role")
+    @Expose
+    val role: Role = Role()
 )

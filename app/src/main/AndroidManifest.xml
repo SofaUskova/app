@@ -12,16 +12,16 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.uiClasses.GenerateList"
+            android:name=".ui.screens.GenerateList"
             android:label="" />
         <activity
-            android:name=".ui.uiClasses.FilterActivity"
+            android:name=".ui.screens.FilterActivity"
             android:label="Фильтр" />
         <activity
-            android:name=".ui.uiClasses.DetailInformationActivity"
+            android:name=".ui.screens.DetailInformationActivity"
             android:label="" />
         <activity
-            android:name=".ui.uiClasses.ViewingImagesActivity"
+            android:name=".ui.screens.ViewingImagesActivity"
             android:label=""
             android:theme="@style/AppThemeDark" />
         <activity android:name=".ui.MainActivity"

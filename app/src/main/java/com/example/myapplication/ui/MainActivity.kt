@@ -7,8 +7,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
-import com.example.myapplication.interfeises.OnActivityDataListener
-import com.example.myapplication.ui.uiClasses.FilterActivity
+import com.example.myapplication.interfaces.OnActivityDataListener
+import com.example.myapplication.ui.screens.FilterActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 

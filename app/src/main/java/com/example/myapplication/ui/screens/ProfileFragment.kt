@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.content.SharedPreferences
 import android.os.Bundle

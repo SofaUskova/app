@@ -1,6 +1,7 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -14,12 +15,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.models.Horse
+import com.example.myapplication.models.SalesContract
 import com.example.myapplication.models.Seller
-import com.example.myapplication.ui.MainActivity
+
 import com.example.myapplication.ui.viewModels.DetailInformationViewModel
 import kotlinx.android.synthetic.main.activity_detail_information.*
 import kotlinx.android.synthetic.main.toolbar.*
-
 
 class DetailInformationActivity : AppCompatActivity() {
     private lateinit var detailInformationViewModel: DetailInformationViewModel
@@ -35,44 +36,48 @@ class DetailInformationActivity : AppCompatActivity() {
         val extras = intent.extras
 
         initToolbar()
-
-        detailInformationViewModel.currentHorse.observe(this, Observer<Horse> { horse ->
-            name.text = horse.document.name
-            dateBirth.text = horse.document.yearBirth
-            gender.text = horse.document.gender.gender
-            breed.text = horse.document.breed.breed
-            color.text = horse.document.color.color
-            father.text = horse.document.father ?: "-"
-            mother.text = horse.document.mother ?: "-"
-            height.text = "${horse.document.height}см"
-            location.text = "${horse.document.location.country}, ${horse.document.location.city}"
-            specialization.text = "horse.document.specialization ?: "
-            organization.text = horse.document.organization
-            brand.text = horse.document.brand
-            marks.text = horse.document.marks
-            docType.text = horse.document.docType.docType
-            price.text = horse.price
-            // imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
-
-            if (horse?.allInform != null) {
-                allInform.visibility = View.VISIBLE
-                allInformButton.visibility = View.VISIBLE
-                viewSix.visibility = View.VISIBLE
-
-                allInform.text = horse.allInform
-            }
-            initListeners(horse)
-        })
-
-        detailInformationViewModel.seller.observe(this, Observer<Seller> { seller ->
-            sellerName.text = seller.name
-            sellerLocation.text = seller.location.city
-            floatButtonTelephone.text = seller.phone
-
-            sellerPhone = seller.phone
-        })
-
         detailInformationViewModel.getDetailInformationHorse(extras?.getInt("ID")!!)
+
+        detailInformationViewModel.currentHorse.observe(this, Observer<SalesContract> { contract ->
+            setDataHorse(contract)
+            setDataSeller(contract.seller)
+            initListeners(contract.horse)
+        })
+    }
+
+    private fun setDataSeller(seller: Seller) {
+        sellerName.text = seller.name
+        sellerLocation.text = seller.location.city
+        floatButtonTelephone.text = seller.phone
+        sellerPhone = seller.phone
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setDataHorse(contract: SalesContract) {
+        name.text = contract.horse.name
+        price.text = contract.price
+        dateBirth.text = contract.horse.yearBirth
+        gender.text = contract.horse.gender.gender
+        breed.text = contract.horse.breed.breed
+        color.text = contract.horse.color.color
+        father.text = contract.horse.father ?: "-"
+        mother.text = contract.horse.mother ?: "-"
+        height.text = "${contract.horse.height}см"
+        location.text = "Россия, ${contract.horse.location.city}"
+        specialization.text = ""
+        organization.text = contract.horse.organization
+        brand.text = contract.horse.brand
+        marks.text = contract.horse.marks
+        docType.text = ""
+        // imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
+
+        if (contract?.horse?.allInform != null) {
+            allInform.visibility = View.VISIBLE
+            allInformButton.visibility = View.VISIBLE
+            viewSix.visibility = View.VISIBLE
+
+            allInform.text = contract.horse.allInform
+        }
     }
 
     private fun initToolbar() {
@@ -92,7 +97,15 @@ class DetailInformationActivity : AppCompatActivity() {
             initExpandableText()
         }
 
-//        imageButtonAddFavorite.setOnClickListener {
+        imageButtonShare.setOnClickListener {
+            shareAdvert()
+        }
+
+        floatButtonTelephone.setOnClickListener {
+            checkCallPermission()
+        }
+
+        //        imageButtonAddFavorite.setOnClickListener {
 //            if (horse.favorite) {
 //                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
 //                horse.favorite = false
@@ -101,31 +114,16 @@ class DetailInformationActivity : AppCompatActivity() {
 //                horse.favorite = true
 //            }
 //        }
+    }
 
-
-        imageButtonShare.setOnClickListener {
-
-            val sharingIntent = Intent(Intent.ACTION_SEND)
-            sharingIntent.apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_SUBJECT, "\n\n")
-                putExtra(Intent.EXTRA_TEXT, "Тут будет объявление")
-            }
-            startActivity(Intent.createChooser(sharingIntent, "Что-то написано"))
+    private fun shareAdvert() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "\n\n")
+            putExtra(Intent.EXTRA_TEXT, "Тут будет объявление")
         }
-
-        floatButtonTelephone.setOnClickListener {
-            checkCallPermission()
-        }
-
-        imageButtonProfile.setOnClickListener {
-            startActivity(
-                Intent(this, MainActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    .putExtra("FRAGMENT", R.id.navigation_profile)
-            )
-            finish()
-        }
+        startActivity(Intent.createChooser(sharingIntent, "Что-то написано"))
     }
 
     private fun initExpandableText() {

@@ -11,25 +11,29 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RegistrationViewModel : ViewModel() {
-    val isSuccessful = MutableLiveData<Boolean>()
+    val isSuccess = MutableLiveData<Boolean>()
 
     fun addSeller(seller: Seller) {
         NetworkService.getInstance()
             ?.getJSONApi()
-            ?.addUser(seller.login)
+            ?.addUser(seller.userPrincipal)
             ?.enqueue(object : Callback<UserPrincipal> {
                 override fun onResponse(
                     call: Call<UserPrincipal>,
                     response: Response<UserPrincipal>
                 ) {
                     if (response.isSuccessful) {
-                        Log.e("onResponse isSuccessful", response.body().toString())
+                        Log.e("addSeller", "onResponseSuccessful ${response.body().toString()}")
                         addNewSeller(seller)
+                    } else {
+                        Log.e("addSeller", "onResponseNotSuccessful $seller")
+                        isSuccess.postValue(false)
                     }
                 }
 
                 override fun onFailure(call: Call<UserPrincipal>, t: Throwable) {
-                    Log.e("onFailure", t.toString())
+                    Log.e("addSeller", "onFailure $t")
+                    isSuccess.postValue(false)
                 }
             })
     }
@@ -44,13 +48,20 @@ class RegistrationViewModel : ViewModel() {
                     response: Response<Seller>
                 ) {
                     if (response.isSuccessful) {
-                        Log.e("onResponse isSuccessful", response.body().toString())
-                        isSuccessful.postValue(true)
+                        Log.e("addNewSeller", "onResponseSuccessful ${response.body().toString()}")
+                        isSuccess.postValue(true)
+                    } else {
+                        Log.e(
+                            "addNewSeller",
+                            "onResponseNotSuccessful ${response.body().toString()}"
+                        )
+                        isSuccess.postValue(false)
                     }
                 }
 
                 override fun onFailure(call: Call<Seller>, t: Throwable) {
-                    Log.e("onFailure", t.toString())
+                    Log.e("addNewSeller", "onFailure $t")
+                    isSuccess.postValue(false)
                 }
             })
     }

@@ -7,10 +7,6 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class Seller(
-    @PrimaryKey
-    @SerializedName("idSeller")
-    @Expose
-    val idSeller: Int,
     @SerializedName("name")
     @Expose
     val name: String,
@@ -20,13 +16,10 @@ data class Seller(
     @SerializedName("location")
     @Expose
     val location: Location,
-    @SerializedName("login")
+    @SerializedName("userPrincipal")
     @Expose
-    val login: UserPrincipal,
+    val userPrincipal: UserPrincipal,
     @SerializedName("image")
     @Expose
-    val image: Image?,
-    @SerializedName("favoriteHorses")
-    @Expose
-    val favoriteHorses: List<Horse>?
+    val image: Image? = null
 )

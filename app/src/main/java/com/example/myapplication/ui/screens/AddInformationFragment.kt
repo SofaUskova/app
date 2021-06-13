@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
-import com.example.myapplication.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.ui.viewModels.AddInformationFragmentViewModel
 import com.example.myapplication.utils.deleteError
@@ -61,7 +60,7 @@ class AddInformationFragment : Fragment() {
 
         deleteError(inputEditTextName, inputTextName)
         deleteError(inputEditTextDocuments, inputTextDocuments)
-        deleteError(inputEditTextOrganization, inputTextOrganization)
+
         selectItem(inputEditTextRegion, "city", 1, this, requireContext())
         selectItemDialogFragment(
             inputEditTextDocuments,
@@ -82,14 +81,11 @@ class AddInformationFragment : Fragment() {
     private fun isNotEmptyAllFields() = !inputEditTextRegion.text.isNullOrEmpty()
             && !inputEditTextName.text.isNullOrEmpty()
             && !inputEditTextDocuments.text.isNullOrEmpty()
-            && !inputEditTextOrganization.text.isNullOrEmpty()
 
     private fun setError() {
         if (inputEditTextName.text.isNullOrEmpty()) inputTextName.error = "Заполните поле"
         if (inputEditTextRegion.text.isNullOrEmpty()) inputTextRegion.error = "Заполните поле"
         if (inputEditTextDocuments.text.isNullOrEmpty()) inputTextDocuments.error = "Заполните поле"
-        if (inputEditTextOrganization.text.isNullOrEmpty()) inputTextOrganization.error =
-            "Заполните поле"
     }
 
     fun onClicked(str: String) {

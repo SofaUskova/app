@@ -13,7 +13,7 @@ data class Location(
     val idLocation: Int,
     @SerializedName("country")
     @Expose
-    val country: String,
+    val country: String = "Россия",
     @SerializedName("city")
     @Expose
     val city: String

@@ -1,9 +1,8 @@
-package com.example.myapplication.ui.uiClasses
+package com.example.myapplication.ui.screens
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.utils.selectItem
 import com.example.myapplication.utils.selectItemDialogFragment

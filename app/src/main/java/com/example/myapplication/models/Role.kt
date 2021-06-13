@@ -6,11 +6,12 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Entity
-data class Image(
-    @SerializedName("url")
+data class Role (
+    @PrimaryKey
+    @SerializedName("idRole")
     @Expose
-    val url: String,
-    @SerializedName("horse")
+    val idRole: Int = 1,
+    @SerializedName("typeRole")
     @Expose
-    val horse: Horse
+    val typeRole: String = "пользователь"
 )

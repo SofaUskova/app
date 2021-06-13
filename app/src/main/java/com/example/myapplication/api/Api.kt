@@ -9,6 +9,34 @@ import retrofit2.http.Path
 
 interface Api {
 
+    //сохранение логина и пароля
+    @POST("/db/addUser")
+    fun addUser(@Body user: UserPrincipal): Call<UserPrincipal>
+
+    //сохраение даннных нового пользователя
+    @POST("/db/addSeller")
+    fun addNewSeller(@Body seller: Seller): Call<Seller>
+
+    //вход по логину
+    @GET("/db/seller/{login}")
+    fun getSeller(@Path("login") login: String): Call<Seller>
+
+    //писок продаваемых лошадей
+    @GET("/db/allHorses")
+    fun getAllHorses(): Call<List<SalesContract>>
+
+    //выставить лошадь на продажу
+    @POST("/db/addHorse")
+    fun addHorse(@Body horse: Horse): Call<Horse>
+
+    //обавление договора купли-продажи
+    @POST("/db/addSalesContract")
+    fun addSalesContract(@Body salesContract: SalesContract): Call<SalesContract>
+
+    //детальная информация о лошади
+    @GET("/db/informHorse/{idHorse}")
+    fun getDetailInformHorse(@Path("idHorse") id: Int): Call<SalesContract>
+
     ///////////////////////////////////// запросы для списков //////////////////////////////////////
 
     @GET("/db/allBreeds")
@@ -22,43 +50,11 @@ interface Api {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GET("/db/allHorses")
-    fun getAllHorses(): Call<List<Horse>>
-
-    @GET("/db/informHorse/{idHorse}")
-    fun getDetailInformHorse(@Path("idHorse")id: Int): Call<Horse>
-
     @GET("/db/favoriteHorses/{idSeller}")
-    fun getFavoriteHorses(@Path("idSeller")idSeller: Int): Call<List<Horse>>
+    fun getFavoriteHorses(@Path("idSeller") idSeller: Int): Call<List<Horse>>
 
-    @POST("/db/addDocument")
-    fun addDocument(@Body document: Document): Call<Document>
-
-    @POST("/db/addHorse")
-    fun addHorse(@Body horse: Horse): Call<Horse>
-
-    @POST("/db/addSalesContract")
-    fun addSalesContract(@Body salesContract: SalesContract): Call<SalesContract>
-
-    @GET("/db/sellerId/{idSeller}")
-    fun getSellerId(@Path("idSeller")idSeller: Int): Call<Seller>
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GET("/db/entry/{login}")
-    fun entry(@Path("login")login: String): Call<UserPrincipal>
-
-    @GET("/db/seller/{login}")
-    fun getSeller(@Path("login")login: String): Call<Seller>
-
-    @POST("/db/addUser")
-    fun addUser(@Body user: UserPrincipal): Call<UserPrincipal>
-
-    @POST("/db/addSeller")
-    fun addNewSeller(@Body seller: Seller): Call<Seller>
-
-
-
-
     @GET("/db/sellersHorses/{id}")
-    fun getSellersHorses(@Path("id")id: Int): Call<List<Horse>>
+    fun getSellersHorses(@Path("id") id: Int): Call<List<Horse>>
 }

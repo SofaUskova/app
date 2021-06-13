@@ -1,4 +1,4 @@
-package com.example.myapplication.interfeises
+package com.example.myapplication.interfaces
 
 interface OnActivityDataListener {
     fun onActivityDataListener()

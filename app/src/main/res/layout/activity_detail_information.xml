@@ -79,12 +79,14 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:columnCount="2"
+            android:rowCount="18"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewTwo">
 
             <TextView
                 android:id="@+id/name"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="-"
                 android:textColor="#263238"
@@ -93,6 +95,7 @@
 
             <TextView
                 android:id="@+id/price"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="-"
                 android:textColor="#263238"
@@ -106,12 +109,14 @@
                 android:background="#ECEFF1" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Год рождения"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/dateBirth"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -120,6 +125,7 @@
                 tools:text="2010г.р." />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Пол"
                 android:textColor="#90A4AE"
@@ -130,31 +136,38 @@
                 android:layout_columnWeight="1"
                 android:text="-"
                 android:textColor="#263238"
+                android:layout_height="wrap_content"
                 android:textSize="12sp"
                 tools:text="Кобыла" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Порода"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/breed"
                 android:layout_columnWeight="1"
                 android:text="-"
+                android:maxWidth="200dp"
                 android:textColor="#263238"
                 android:textSize="12sp"
-                tools:text="Тракененская" />
+                tools:text="Тракеddddddoooooooooodcccccccccccccccccccdddя" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Масть"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/color"
+                android:maxWidth="200dp"
                 android:layout_columnWeight="1"
                 android:text="-"
                 android:textColor="#263238"
@@ -162,12 +175,14 @@
                 tools:text="Соловая" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Отец"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/father"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -176,12 +191,14 @@
                 tools:text="Карнавал" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Мать"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/mother"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -190,12 +207,14 @@
                 tools:text="Балерина" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Высота в холке"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/height"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -204,12 +223,14 @@
                 tools:text="173см" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Местоположение"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/location"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -218,12 +239,14 @@
                 tools:text="Орловкая обл, г. Орел" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Специализация"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/specialization"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -232,12 +255,14 @@
                 tools:text="Конкур" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Организация"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/organization"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -246,12 +271,14 @@
                 tools:text="КСК Образцово" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Тавро"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/brand"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -260,12 +287,14 @@
                 tools:text="34" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Отметины"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/marks"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -274,12 +303,14 @@
                 tools:text="Носок на левой задней ноге" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="Документы"
                 android:textColor="#90A4AE"
                 android:textSize="12sp" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/docType"
                 android:layout_columnWeight="1"
                 android:text="-"
@@ -308,7 +339,6 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="@string/text_long_info"
                 tools:visibility="visible" />
 
             <TextView
