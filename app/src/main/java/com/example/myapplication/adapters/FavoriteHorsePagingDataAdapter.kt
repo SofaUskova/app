@@ -3,7 +3,7 @@ package com.example.myapplication.adapters
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.example.myapplication.models.Horse
+
 import com.example.myapplication.models.SalesContract
 
 class FavoriteHorsePagingDataAdapter :
@@ -18,7 +18,7 @@ class FavoriteHorsePagingDataAdapter :
         contract?.let {
             holder.bind(it.horse, it)
             holder.initListenersFavorite(it.horse)
-            holder.setFavoriteOn(it.horse)
+//            holder.setFavoriteOn(it.horse)
         }
     }
 

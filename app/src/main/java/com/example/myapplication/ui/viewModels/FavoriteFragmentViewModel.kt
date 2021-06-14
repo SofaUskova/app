@@ -12,12 +12,12 @@ class FavoriteFragmentViewModel : ViewModel() {
     private var searchJob: Job? = null
     val horsePagingDataAdapter: FavoriteHorsePagingDataAdapter = FavoriteHorsePagingDataAdapter()
 
-    fun searchData() {
-//        searchJob?.cancel()
-//        searchJob = viewModelScope.launch {
-//            searchHorses(isFavorite = true).collectLatest {
-//                horsePagingDataAdapter.submitData(it)
-//            }
-//        }
+    fun searchData(login: String) {
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            searchHorses(isFavorite = true, login = login).collectLatest {
+                horsePagingDataAdapter.submitData(it)
+            }
+        }
     }
 }

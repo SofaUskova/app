@@ -1,5 +1,6 @@
 package com.example.myapplication.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +23,9 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val color: TextView = view.findViewById(R.id.color)
     private val location: TextView = view.findViewById(R.id.location)
     private val price: TextView = view.findViewById(R.id.price)
-    private var imageButtonAddFavorite: ImageButton = view.findViewById(R.id.imageButtonAddFavorite)
     private val cardView: CardView = view.findViewById(R.id.cardView)
 
+    @SuppressLint("SetTextI18n")
     fun bind(horse: Horse?, contract: SalesContract) {
         name.text = horse?.name ?: "-"
         age.text = horse?.yearBirth ?: "-"
@@ -33,20 +34,9 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         color.text = horse?.color?.color ?: "-"
         location.text = horse?.location?.city ?: "-"
         price.text = "${contract.price}р"
-        //imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
     }
 
     fun initListeners(horse: Horse?) {
-//        cardView.imageButtonAddFavorite.setOnClickListener {
-//            if (horse.favorite) {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-//                horse.favorite = false
-//            } else {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-//                horse.favorite = true
-//            }
-//        }
-
         cardView.setOnClickListener {
             val bundle = bundleOf("ID" to horse?.idHorse)
             NavHostFragment
@@ -55,22 +45,12 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    fun setFavoriteOn(horse: Horse) {
-        imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-//        horse.favorite = true
-    }
+//    fun setFavoriteOn(horse: Horse) {
+//        imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+////        horse.favorite = true
+//    }
 
     fun initListenersFavorite(horse: Horse) {
-//        cardView.imageButtonAddFavorite.setOnClickListener {
-//            if (horse.favorite) {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-//                horse.favorite = false
-//            } else {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-//                horse.favorite = true
-//            }
-//        }
-
         cardView.setOnClickListener {
             val bundle = bundleOf("ID" to horse.idHorse)
             NavHostFragment

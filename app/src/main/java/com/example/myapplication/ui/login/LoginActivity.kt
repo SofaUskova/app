@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             "SellerPreference",
             MODE_PRIVATE
         )
-        if (sharedPreferencesGet.getString("NAME", "") != null) {
+        if (sharedPreferencesGet.getString("LOGIN", "") != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -71,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
     private fun createSharedPreference(seller: Seller) {
         sharedPreferences = getSharedPreferences("SellerPreference", MODE_PRIVATE).edit()
         sharedPreferences.apply {
+            putString("LOGIN", seller.userPrincipal.login)
             putString("NAME", seller.name)
             putString("PHONE", seller.phone)
             putString("LOCATION", seller.location.city)

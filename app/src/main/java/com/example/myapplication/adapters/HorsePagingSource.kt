@@ -8,14 +8,16 @@ import com.example.myapplication.models.SalesContract
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class HorsePagingSource (private val isFavorite: Boolean) : PagingSource<Int, SalesContract>() {
+class HorsePagingSource(
+    private val isFavorite: Boolean,
+    private val login: String
+) : PagingSource<Int, SalesContract>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SalesContract> {
         val nextKey = params.key ?: 1
 
         val list = withContext(Dispatchers.IO) {
-            getHorses()
-           //if(isFavorite) getFavoriteHorse() else
+            if (isFavorite) getFavoriteHorse() else getHorses()
         }
 
         return LoadResult.Page(
@@ -25,19 +27,18 @@ class HorsePagingSource (private val isFavorite: Boolean) : PagingSource<Int, Sa
         )
     }
 
-//    private fun getFavoriteHorse(): List<Horse> {
-//        //TODO seller id
-//        return  try {
-//            NetworkService.getInstance()
-//                ?.getJSONApi()
-//                ?.getFavoriteHorses(2)
-//                ?.execute()
-//                ?.body()!!
-//        } catch (e: Exception) {
-//            Log.e("ExceptionGetFavHor", e.message ?: "")
-//            listOf()
-//        }
-//    }
+    private fun getFavoriteHorse(): List<SalesContract> {
+        return try {
+            NetworkService.getInstance()
+                ?.getJSONApi()
+                ?.getFavoriteHorses(login)
+                ?.execute()
+                ?.body()!!
+        } catch (e: Exception) {
+            Log.e("ExceptionGetFavHor", e.message ?: "")
+            listOf()
+        }
+    }
 
     private fun getHorses(): List<SalesContract> {
         return try {

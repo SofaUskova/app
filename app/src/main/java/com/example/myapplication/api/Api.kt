@@ -37,6 +37,14 @@ interface Api {
     @GET("/db/informHorse/{idHorse}")
     fun getDetailInformHorse(@Path("idHorse") id: Int): Call<SalesContract>
 
+    //лошади в избранном
+    @GET("/db/favoriteHorses/{login}")
+    fun getFavoriteHorses(@Path("login") login: String): Call<List<SalesContract>>
+
+    //добавить лошадь в избранное
+//    @POST("/db/addFavoriteHorse")
+//    fun addFavoriteHorse(@Body favoriteHorse: FavoriteHorse): Call<FavoriteHorse>
+
     ///////////////////////////////////// запросы для списков //////////////////////////////////////
 
     @GET("/db/allBreeds")
@@ -47,11 +55,6 @@ interface Api {
 
     @GET("/db/allCities")
     fun getAllCities(): Call<List<String>>
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @GET("/db/favoriteHorses/{idSeller}")
-    fun getFavoriteHorses(@Path("idSeller") idSeller: Int): Call<List<Horse>>
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 

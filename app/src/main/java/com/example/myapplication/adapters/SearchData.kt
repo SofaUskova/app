@@ -3,11 +3,10 @@ package com.example.myapplication.adapters
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.myapplication.models.Horse
 import com.example.myapplication.models.SalesContract
 import kotlinx.coroutines.flow.Flow
 
-fun searchHorses(isFavorite: Boolean): Flow<PagingData<SalesContract>> {
+fun searchHorses(isFavorite: Boolean, login: String): Flow<PagingData<SalesContract>> {
     return Pager(
         config = PagingConfig(
             pageSize = 5,
@@ -15,7 +14,7 @@ fun searchHorses(isFavorite: Boolean): Flow<PagingData<SalesContract>> {
             maxSize = 15
         ),
         pagingSourceFactory = {
-            HorsePagingSource(isFavorite)
+            HorsePagingSource(isFavorite, login)
         }
     ).flow
 }

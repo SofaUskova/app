@@ -15,7 +15,7 @@ class SearchFragmentViewModel : ViewModel() {
     fun getAllHorses() {
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            searchHorses(isFavorite = false).collectLatest {
+            searchHorses(isFavorite = false, login = "").collectLatest {
                 horsePagingDataAdapter.submitData(it)
             }
         }
