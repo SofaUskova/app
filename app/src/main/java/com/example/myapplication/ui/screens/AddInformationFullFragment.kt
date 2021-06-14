@@ -51,10 +51,12 @@ class AddInformationFullFragment : Fragment() {
             3 -> {
                 inputEditTextColor.setText(data?.getStringExtra("value"))
                 colorPosition = data?.getIntExtra("position", 1)!!
+                colorPosition++
             }
             4 -> {
                 inputEditTextBreed.setText(data?.getStringExtra("value"))
                 breedPosition = data?.getIntExtra("position", 1)!!
+                breedPosition++
             }
         }
     }
@@ -99,10 +101,11 @@ class AddInformationFullFragment : Fragment() {
                 )
 
                 val seller = Seller(
+                    sharedPreferences.getString("IDSELLER", "0")?.toInt() ?: 0,
                     sharedPreferences.getString("NAME", "") ?: "",
                     sharedPreferences.getString("PHONE", "") ?: "",
                     Location(1, city = sharedPreferences.getString("LOCATION", "")?: "Москва"),
-                    UserPrincipal("", "")
+                    UserPrincipal(sharedPreferences.getString("LOGIN", "") ?: "", "g")
                 )
 
                 val color = Color(colorPosition, inputEditTextColor.text.toString())

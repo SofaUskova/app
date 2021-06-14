@@ -15,7 +15,6 @@ import com.example.myapplication.ui.viewModels.ProfileViewModel
 import com.example.myapplication.utils.convertPixelsToDp
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-
 class ProfileFragment : Fragment() {
     private lateinit var profileViewModel: ProfileViewModel
     private lateinit var sharedPreferences: SharedPreferences
@@ -39,6 +38,16 @@ class ProfileFragment : Fragment() {
         sellerLocation.text = sharedPreferences.getString("LOCATION", "")
 
        // initListeners(view)
+
+        imageButtonLogout.setOnClickListener {
+            sharedPreferences.apply {
+                edit().remove("LOGIN").apply()
+                edit().remove("NAME").apply()
+                edit().remove("PHONE").apply()
+                edit().remove("LOCATION").apply()
+            }
+            requireActivity().finish()
+        }
 
         val image = ImageView(requireContext())
         image.layoutParams = LinearLayout.LayoutParams(

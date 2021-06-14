@@ -6,10 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class FavoriteHorse(
-    @SerializedName("idDoc")
+    @SerializedName("repositoryKey")
     @Expose
-    val horse: Horse,
-    @SerializedName("docType")
-    @Expose
-    val seller: Seller
+    val repositoryKey: RepositoryKey
 )

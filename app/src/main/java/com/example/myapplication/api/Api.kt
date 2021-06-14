@@ -42,8 +42,8 @@ interface Api {
     fun getFavoriteHorses(@Path("login") login: String): Call<List<SalesContract>>
 
     //добавить лошадь в избранное
-//    @POST("/db/addFavoriteHorse")
-//    fun addFavoriteHorse(@Body favoriteHorse: FavoriteHorse): Call<FavoriteHorse>
+    @POST("/db/addFavoriteHorse")
+    fun addFavoriteHorse(@Body favoriteHorse: FavoriteHorse): Call<FavoriteHorse>
 
     ///////////////////////////////////// запросы для списков //////////////////////////////////////
 

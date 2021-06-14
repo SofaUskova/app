@@ -7,6 +7,10 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class Seller(
+    @PrimaryKey
+    @SerializedName("idSeller")
+    @Expose
+    val idSeller: Int,
     @SerializedName("name")
     @Expose
     val name: String,

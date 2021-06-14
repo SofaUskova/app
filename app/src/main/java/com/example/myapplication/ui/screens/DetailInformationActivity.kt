@@ -14,9 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
-import com.example.myapplication.models.Horse
-import com.example.myapplication.models.SalesContract
-import com.example.myapplication.models.Seller
+import com.example.myapplication.models.*
 
 import com.example.myapplication.ui.viewModels.DetailInformationViewModel
 import kotlinx.android.synthetic.main.activity_detail_information.*
@@ -25,6 +23,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 class DetailInformationActivity : AppCompatActivity() {
     private lateinit var detailInformationViewModel: DetailInformationViewModel
     private lateinit var sellerPhone: String
+    private lateinit var favoriteHorse: FavoriteHorse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +41,12 @@ class DetailInformationActivity : AppCompatActivity() {
             setDataHorse(contract)
             setDataSeller(contract.seller)
             initListeners(contract.horse)
+            favoriteHorse = FavoriteHorse(
+                repositoryKey = RepositoryKey(
+                    salesContract = contract,
+                    seller = contract.seller
+                )
+            )
         })
     }
 
@@ -69,9 +74,8 @@ class DetailInformationActivity : AppCompatActivity() {
         brand.text = contract.horse.brand
         marks.text = contract.horse.marks
         docType.text = ""
-        // imageButtonAddFavorite.setImageResource(if (horse?.favorite == true) R.drawable.ic_favorite_added else R.drawable.ic_favorite)
 
-        if (contract?.horse?.allInform != null) {
+        if (contract.horse.allInform != null) {
             allInform.visibility = View.VISIBLE
             allInformButton.visibility = View.VISIBLE
             viewSix.visibility = View.VISIBLE
@@ -105,15 +109,14 @@ class DetailInformationActivity : AppCompatActivity() {
             checkCallPermission()
         }
 
-        //        imageButtonAddFavorite.setOnClickListener {
-//            if (horse.favorite) {
+        imageButtonAddFavorite.setOnClickListener {
+            detailInformationViewModel.getHorseInFavorite(favoriteHorse)
+//            if (imageButtonAddFavorite.drawable == resources.getDrawable(R.drawable.ic_favorite_added)) {
 //                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-//                horse.favorite = false
 //            } else {
 //                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-//                horse.favorite = true
 //            }
-//        }
+        }
     }
 
     private fun shareAdvert() {

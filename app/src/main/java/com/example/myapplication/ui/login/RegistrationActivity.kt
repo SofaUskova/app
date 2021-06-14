@@ -64,6 +64,7 @@ class RegistrationActivity : AppCompatActivity() {
 
             if (phone.length == 10) {
                 val newSeller = Seller(
+                    idSeller = 0,
                     name = name,
                     phone = phone,
                     //TODO
