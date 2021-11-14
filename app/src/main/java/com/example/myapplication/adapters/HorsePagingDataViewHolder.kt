@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
@@ -23,6 +23,7 @@ class HorsePagingDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val color: TextView = view.findViewById(R.id.color)
     private val location: TextView = view.findViewById(R.id.location)
     private val price: TextView = view.findViewById(R.id.price)
+    private val imageView: ImageView = view.findViewById(R.id.imageView)
     private val cardView: CardView = view.findViewById(R.id.cardView)
 
     @SuppressLint("SetTextI18n")

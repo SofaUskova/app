@@ -54,26 +54,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_vertical_margin"
-        android:paddingBottom="16dp"
-        android:paddingEnd="8dp"
-        android:gravity="right"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:text="Регистрация"
-        app:layout_constraintStart_toStartOf="@+id/inputTexPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputTexPassword" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputTexPassword" />
 
     <Button
         android:id="@+id/buttonNextBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="#607D8B"
         android:paddingVertical="8dp"
         android:text="Вход"
         android:textAllCaps="false"
         android:textColor="#EEEEEE"
         android:textSize="16sp"
-        android:background="#607D8B"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/registration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

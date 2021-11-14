@@ -111,11 +111,11 @@ class DetailInformationActivity : AppCompatActivity() {
 
         imageButtonAddFavorite.setOnClickListener {
             detailInformationViewModel.getHorseInFavorite(favoriteHorse)
-//            if (imageButtonAddFavorite.drawable == resources.getDrawable(R.drawable.ic_favorite_added)) {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
-//            } else {
-//                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
-//            }
+            if (imageButtonAddFavorite.drawable == resources.getDrawable(R.drawable.ic_favorite_added)) {
+                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite)
+            } else {
+                imageButtonAddFavorite.setImageResource(R.drawable.ic_favorite_added)
+            }
         }
     }
 

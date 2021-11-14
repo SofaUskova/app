@@ -10,54 +10,54 @@ import retrofit2.http.Path
 interface Api {
 
     //сохранение логина и пароля
-    @POST("/db/addUser")
+    @POST("addUser")
     fun addUser(@Body user: UserPrincipal): Call<UserPrincipal>
 
     //сохраение даннных нового пользователя
-    @POST("/db/addSeller")
+    @POST("addSeller")
     fun addNewSeller(@Body seller: Seller): Call<Seller>
 
     //вход по логину
-    @GET("/db/seller/{login}")
+    @GET("seller/{login}")
     fun getSeller(@Path("login") login: String): Call<Seller>
 
     //писок продаваемых лошадей
-    @GET("/db/allHorses")
+    @GET("allHorses")
     fun getAllHorses(): Call<List<SalesContract>>
 
     //выставить лошадь на продажу
-    @POST("/db/addHorse")
+    @POST("addHorse")
     fun addHorse(@Body horse: Horse): Call<Horse>
 
     //обавление договора купли-продажи
-    @POST("/db/addSalesContract")
+    @POST("addSalesContract")
     fun addSalesContract(@Body salesContract: SalesContract): Call<SalesContract>
 
     //детальная информация о лошади
-    @GET("/db/informHorse/{idHorse}")
+    @GET("informHorse/{idHorse}")
     fun getDetailInformHorse(@Path("idHorse") id: Int): Call<SalesContract>
 
     //лошади в избранном
-    @GET("/db/favoriteHorses/{login}")
+    @GET("favoriteHorses/{login}")
     fun getFavoriteHorses(@Path("login") login: String): Call<List<SalesContract>>
 
     //добавить лошадь в избранное
-    @POST("/db/addFavoriteHorse")
+    @POST("addFavoriteHorse")
     fun addFavoriteHorse(@Body favoriteHorse: FavoriteHorse): Call<FavoriteHorse>
 
     ///////////////////////////////////// запросы для списков //////////////////////////////////////
 
-    @GET("/db/allBreeds")
+    @GET("allBreeds")
     fun getAllBreeds(): Call<List<String>>
 
-    @GET("/db/allColors")
+    @GET("allColors")
     fun getAllColors(): Call<List<String>>
 
-    @GET("/db/allCities")
+    @GET("allCities")
     fun getAllCities(): Call<List<String>>
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GET("/db/sellersHorses/{id}")
+    @GET("sellersHorses/{id}")
     fun getSellersHorses(@Path("id") id: Int): Call<List<Horse>>
 }

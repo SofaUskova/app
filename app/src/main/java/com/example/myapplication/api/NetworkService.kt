@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkService {
-    private const val BASE_URL = "http://192.168.43.85:8080/"
+    private const val BASE_URL = "http://wartest-env.eba-vptnwyk4.eu-central-1.elasticbeanstalk.com/"
     private var mInstance: NetworkService? = null
 
     private val loggingInterceptor = HttpLoggingInterceptor()
@@ -20,7 +20,7 @@ object NetworkService {
         .setLenient()
         .create()!!
 
-    var mRetrofit: Retrofit = Retrofit.Builder()
+    private var mRetrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(okClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
